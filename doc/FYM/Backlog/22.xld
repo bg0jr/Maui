@@ -1,0 +1,15 @@
+﻿[@page.type: backlog]
+[@subject: Refactoring - DataProviderSC]
+
+- it is not a SC actually
+- maybe it is a kind of factory but also others are creating GenericDatumProvider manually
+
+- Define how it should be used in future
+- Should it be like AlgoBC? get a algo (provider) and work directly with it?
+- should it be like SceneGraphSC: put work package into it and get results?
+- both ideas can work with async stuff
+
+- document the decision and the new design
+- cleanup the code  
+
+

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StarterHookCollection xmlns="clr-namespace:Blade.Shell;assembly=Blade.Shell" 
+             xmlns:s="clr-namespace:Maui.Tools.Scripts;assembly=Maui.Tools.Scripts" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StarterHook Option="-Analyse.HighLow" Description="Calculates highest and lowest prices">
+        <Script>
+            <s:HighestLowestPrices/>
+        </Script>
+    </StarterHook>
+    <StarterHook Option="-Analyse.BackTesting" Description="Runs simple backtesting">
+        <Script>
+            <s:SimpleBackTesting/>
+        </Script>
+    </StarterHook>
+    <StarterHook Option="-Analyse.StockRanking" Description="Runs stock ranking evaluation for the configured stocks and trading system">
+        <Script>
+            <s:StockRanking/>
+        </Script>
+    </StarterHook>
+    <StarterHook Option="-Analyse.TopFlop" Description="Winner and loser analysis">
+        <Script>
+            <s:TopFlop/>
+        </Script>
+    </StarterHook>
+</StarterHookCollection>
+    

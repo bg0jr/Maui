@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StarterHookCollection xmlns="clr-namespace:Blade.Shell;assembly=Blade.Shell" 
+             xmlns:s="clr-namespace:Maui.Tools.Scripts;assembly=Maui.Tools.Scripts" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StarterHook Option="-Import.Stock" Description="Imports the given stock into the system">
+        <Script>
+            <s:CreateStock/>
+        </Script>
+    </StarterHook>
+    <StarterHook Option="-Fetch" Description="Fetches the given datum without importing">
+        <Script>
+            <s:Fetch/>
+        </Script>
+    </StarterHook>
+    <StarterHook Option="-Import" Description="Imports the given datum">
+        <Script>
+            <s:Import/>
+        </Script>
+    </StarterHook>
+    <StarterHook Option="-Import.Prices" Description="Imports stock prices">
+        <Script>
+            <s:ImportPrices/>
+        </Script>
+    </StarterHook>
+</StarterHookCollection>

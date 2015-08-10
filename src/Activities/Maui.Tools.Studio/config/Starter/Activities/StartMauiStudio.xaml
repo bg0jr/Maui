@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StarterHook xmlns="clr-namespace:Maui.Shell;assembly=Maui.Core"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StarterHook.Option>-studio</StarterHook.Option>
+    <StarterHook.Description>Starts Maui studio</StarterHook.Description>
+    <Command>
+        <Command.Executable>Maui.Tools.Studio.exe</Command.Executable>
+        <Command.Home>%MAUI_HOME%</Command.Home>
+    </Command>
+</StarterHook>
+

@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<maui xmlns="http://www.my-maui.com/xsd/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="maui ../xsd/config.xsd" namespace="Maui.Data">
+  <property key="TOM.Database.Uri" value="@DATABASE.URI@" />
+</maui>

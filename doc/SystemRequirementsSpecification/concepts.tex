@@ -1,0 +1,263 @@
+\chapter{Systemdesign}
+
+%sys-doc, arch, design
+
+\section{Automatic information grabbing}
+
+How could we get semantic information from internet sites?
+
+\subsection{Requirements}
+
+\begin{itemize}
+	\item The organisation of the different pages (same provider) may be
+	dynamic in some way (some tables may be missing on some pages) so exact
+	path specification may be difficult
+	\item so when using exact path specification we may need different anchors
+	(not only the begin of the document). maybe s.th. like headlines or simple
+	"`words"'\\
+	e.g.: "`search for 'Gewinn' and then //table[1]/tr[2]/td[2]"'
+	\item semantic description may be better like:\\
+	"`search for 'EPS' and then take all the columns in that row"'
+\end{itemize}
+
+\subsection{What tools already exist for that?}
+
+Keywords: screen scraping, web scraping
+
+\begin{itemize}
+	\item Effective Web Data Extraction with Standard XML Technologies\\
+	\url{http://www10.org/cdrom/papers/102/index.html}
+	\item \url{http://iconico.com/DataExtractor/}
+	\item \url{http://www.codeproject.com/internet/webcrawler.asp}
+	\item DataFerrett\\
+	\url{http://dataferrett.census.gov/TheDataWeb/index.html}
+	\item \url{http://www.rubyrailways.com/data-extraction-for-web-20-screen-scraping-in-rubyrails}
+	\item \url{http://www.screen-scraper.com/}
+	\item \url{http://www.iopus.com/imacros/web-scraping.htm}
+	\item \url{http://www.theeasybee.com/}
+	\item \url{http://www.perl.com/pub/a/2003/01/22/mechanize.html}
+	\item \url{http://simile.mit.edu/wiki/Piggy_Bank}
+	\item \url{http://blog.screen-scraper.com/2006/03/21/three-common-methods-for-data-extraction/}
+	\item \url{http://www.perl.com/pub/a/2006/06/01/fear-api.html}
+	\item \url{http://www.iopus.com/imacros/tutorials/java.htm}
+	\item \url{http://www.vogel-nest.de/wiki/Main/WebScraping1}
+	\item \url{http://de.wikipedia.org/wiki/Screen_Scraping}
+	\item \url{http://www.dalkescientific.com/writings/diary/archive/2005/04/21/screen_scraping.html}
+	\item \url{http://www.rexx.com/~dkuhlman/quixote_htmlscraping.html}
+	%\item \url{}
+\end{itemize}
+
+\subsection{Exact path specification}
+
+\begin{itemize}
+	\item not useful to get fundamental data
+	\item to much paths to specify
+	\item pages for different companies at the same financial site are too different
+	(some values are missing, some tables are missing)
+	\item may be helpful to get current prices of single stock
+\end{itemize}
+
+\subsection{Semantic table description}
+
+\begin{itemize}
+	\item get tables from HTML into better parsable format
+	\item find usable way to describe the content of the table
+	(first row is header, first column is header, row has date format, etc)
+\end{itemize}
+
+\section{Growth Rate Calculation}
+
+\begin{itemize}
+	\item The 4 growth rates can be weighted. So to get a list with best
+	companies on top (like in magic formular) we could weight the 4 growth
+	rates and put the ROIC on top.
+	\item für "`Sticker and MOS Calculator"' auf www.ruleoneinvestor.com siehe Seite 218
+	\item für "`ROI Calculator"' auf www.ruleoneinvestor.com siehe Seite 220
+\end{itemize}
+
+\section{Screen scraping}
+
+
+Effective Web Data Extraction with Standard XML Technologies
+- http://www10.org/cdrom/papers/102/index.html
+
+DataExtractor
+- http://iconico.com/DataExtractor/
+- http://iconico.com/DataExtractor/help.aspx
+- Angabe mehrerer URLs, von denen Daten extrahiert werden sollen
+- erlaubt Angabe übergeordneter Ordner und URLs, Daten werden aus
+  untergeordneten Dateien/URLs extrahiert
+- Spezifikation, was extrahiert werden soll
+  - verschiedene Arten Regeln zu definieren
+  - verschiedene vordefinierte Regeln (Email, Telefon-Nummern, URLs)
+  - "pattern based rule"
+    - verwendet reguläre Ausdrücke um Daten zu finden und zu extrahieren
+  - "text based rule"
+    - basiert auf exaktem Text und einfach Wildcards (z.B. f?nd: find, fond)
+    - "fuzzy search": Limit der Ähnlichkeit, "found" findet "bound" mit Limit = 1
+  - "HTML Webpage Script"
+    - verwendet JavaScript
+    - parst DOM um Daten zu finden
+    - zum Extrahieren der Daten gibt es zusätzliche API
+    - der Anwender implementiert letztlich einen DOM Parser, um an die zu extrahierenden
+      Daten heranzukommen
+
+Web Data Extraction by Crawling using WINHTTP and Document Object (DOM) Instantiation
+- http://www.codeproject.com/internet/webcrawler.asp
+- verwendet WINHTTP 5 Bibliothek um HTML Seiten mittels HTTP zu downloaden
+- erzeugt einen DOM für die HTML Seite
+- Daten, die extrahiert werden sollen, können nicht angegeben werden
+- es steht lediglich der DOM zur Verfügung, ein DOM Parser mit Spezifikation, welche
+  Daten extrahiert werden sollen wäre hinzuzufügen
+
+Data extraction for Web 2.0: Screen scraping in Ruby/Rails
+- http://www.rubyrailways.com/data-extraction-for-web-20-screen-scraping-in-rubyrails
+- Artikel
+- erklärt verschiedene Methoden, um Daten zu spezifizieren und zu extrahieren
+- String wrappers
+  - HTML Seite
+- Tree Wrappers
+  - DOM parsen
+  - Problem: HTML ist nicht immer valides XML
+  - Ruby: HTree (HTML Parser) und REXML (XML Parser)
+  - HTML nach XML umwandeln und dann XPath Ausdrücke verwenden zur Spezifikation der Daten
+  - Ruby: Hpricot: XPath direkt auf HTML Dokument (Umwandlung von HTML nach XML passiert intern)
+- RubyfulSoup
+  - mächtiges screen-scraping Paket
+  - verwendet Ruby-like Syntax, um HTML Tags anzusteuern und ihre Daten zu extrahieren
+  - Spezifikation der sematischen Daten also im Ruby Code
+  - sozusagen "XPath mit Ruby Syntax"
+- WWW::Mechanize
+  - Fernsteuerung für HTML Formulare
+  - Programmatisches Ausfüllen von Forumularen
+  - Navigation zur Ergebnisseite
+  - Extraktion der Ergebnisse
+  - Extraktionsspezifikation nicht so mächtig, wie bei XPath
+- scRUBYt!
+  - Ruby Web-Extraktions-Framework basierend on Hpricot und Mechanize
+  - Support: Navigation von WWW Seiten, Füllen von Formularen, Extraktion von Daten
+  - Ruby Syntax für Spezifikation der Daten statt XPath
+- WATIR
+  - "Web Application Testing in Ruby"
+  - nutzt Internet Explorer um WWW Seiten zu steuern (Navigation, Formulare ausfüllen)
+  - extrahiert Daten
+
+
+Building a Web Service to Provide Real-Time Stock Quotes
+- http://www.dotnetjunkies.com/Article/A3E8CA89-9AA1-4C3B-BCC6-901C92A523E9.dcik
+- Beschreibt einen Web-Service, der Real-Time stock quotes liefert
+- Daten von Yahoo! Finance
+- C-Sharp Beispiel, wie Daten von einer WWW Seite gelesen werden können (als HTML)
+- verwendet hand-geschriebenen Parser um Daten zu extrahieren, Spezifikation der
+  semantischen Daten also im Code
+
+
+- http://www.screen-scraper.com/
+- http://www.iopus.com/imacros/web-scraping.htm
+- http://www.theeasybee.com/
+- http://www.perl.com/pub/a/2003/01/22/mechanize.html
+- \url{http://simile.mit.edu/wiki/Piggy_Bank}
+- http://blog.screen-scraper.com/2006/03/21/three-common-methods-for-data-extraction/
+- http://www.perl.com/pub/a/2006/06/01/fear-api.html
+- http://www.iopus.com/imacros/tutorials/java.htm
+- http://www.vogel-nest.de/wiki/Main/WebScraping1
+- \url{http://de.wikipedia.org/wiki/Screen_Scraping}
+- \url{http://www.dalkescientific.com/writings/diary/archive/2005/04/21/screen_scraping.html}
+- \url{http://www.rexx.com/~dkuhlman/quixote_htmlscraping.html}
+
+- avoid being blocked when screen scraping
+  - http://www.ddj.com/184405712
+  
+- setting the proxy on webbrowser
+  - http://ryanfarley.com/blog/archive/2004/12/23/1330.aspx
+
+
+C-Sharp und Tray-Icons
+- hilfreich für ticker app
+- sollte klein (RAM) sein und nur notifikationen zeigen
+- http://www.mycsharp.de/wbb2/thread.php?threadid=24261
+- http://www.developer.com/net/csharp/article.php/3336751
+- http://www.codeproject.com/csharp/trayiconmenu01.asp
+
+
+=================================================================================
+ C O D E
+=================================================================================
+
+-------------------------------------------------------------------------------------------------------
+
+http://www.dotnetjunkies.com/Article/A3E8CA89-9AA1-4C3B-BCC6-901C92A523E9.dcik
+
+public static string GetPageContent(string url) // http://finance.yahoo.com/q/ecn?s=MSFT
+{
+    WebRequest wreq;
+    WebResponse wres;
+    StreamReader sr;
+    String content;
+
+    wreq = HttpWebRequest.Create(url);
+    wres = wreq.GetResponse();
+    sr = new StreamReader(wres.GetResponseStream());
+    content = sr.ReadToEnd();
+    sr.Close();
+
+    return content;
+}
+
+private string ParsePage(string page)
+{
+    Int32 i;
+
+    i = page.IndexOf("Last Trade:");
+    page = page.Substring(i);
+
+    i = page.IndexOf("<b>");
+    page = page.Substring(i);
+
+    i = page.IndexOf("</b>");
+    page = page.Substring(0,i);
+
+    page = Regex.Replace(page, "<b>","");
+    return page;
+}
+
+-------------------------------------------------------------------------------------------------------
+
+\section{GuideLines}
+
+\subsection{ErrorHandling}
+- all .net event handlers must have a try cache
+  - or can we register OnUnhandledException?
+  - to make exceptions visible and log it
+
+- service layer throws exception
+- BCs throw exceptions
+- BFs catch all exception, log it, propagate it to UI
+- UI catches all internal exceptions, log it, show to user
+  - shows error messages from BFs to user
+
+- MainUI and MainBE need to impl a communication channel esp. for 
+  errors and warnings
+
+\subsubsection{Input/parameter validation}
+
+- UI validates obvious errornous inputs
+  e.g.: required fields are not filled, number required
+  but input is no valid number
+  
+- BF does no validation at all
+  - except runtime stuff, e.g.: BC not found, communication channel closed
+  
+- BC validates semantic of inputs
+  - e.g. stockcatalog does not exist and should not be created
+  
+
+\subsection{Others}
+
+
+sn -k <xyz.snk>
+
+
+
+
+

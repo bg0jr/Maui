@@ -1,0 +1,8 @@
+﻿[@page.type: backlog]
+[@subject: Merge TimeGrouping and TimeFrames]
+
+* we need something to define "this is a weekly stock price"
+* maybe we also need transformations from day 
+
+* identify what we really need and merge those two approaches
+

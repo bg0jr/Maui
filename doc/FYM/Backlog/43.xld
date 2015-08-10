@@ -1,0 +1,12 @@
+﻿[@page.type: backlog]
+[@subject: Portfolio benchmarking]
+
+* we need a "tool" to create a chart which shows the performance of the portfolio
+* compared to a selectable benchmark (e.g. S&P500, MSCI world)
+
+!! Prerequisites
+
+* portfolio inside Maui DB - at least the data
+* handling of indices in DB clarified and realized
+
+

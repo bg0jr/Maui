@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<xm:maui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="maui ../../../Starter/src/config/xsd/config.xsd"
+  xmlns:xm="http://www.my-maui.com/xsd/config"
+  namespace="Maui.Services.Msl.MslInterpreter">
+
+  <!-- no dataprovider ranking defined so far -->
+  <xm:property key="DatumOrigin.Ranking" value=""/>
+
+  <!-- merging of DatumOrigins not allowed -->
+  <xm:property key="DatumOrigin.EnableMerge" value="false"/>
+
+  <!-- name of the table with the daily stock prices -->
+  <xm:property key="Tables.DailyStockPrices" value="stock_price"/>
+</xm:maui>

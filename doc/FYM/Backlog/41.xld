@@ -1,0 +1,9 @@
+﻿[@page.type: backlog]
+[@subject: Move MauiX to Maui.Scripting]
+
+* it is useful for scripting but it should not be used e.g. in task-layer
+* let try to concentrate all scripting related stuff in a central location
+  (or two: Maui.Scripting and Maui.Entities.Dynamics)
+* at least until future of MSL is clear
+
+

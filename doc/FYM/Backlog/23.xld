@@ -1,0 +1,13 @@
+﻿[@page.type: backlog]
+[@subject: BackTesting]
+
+- learn about "MonteCarlo method"
+- how does backtesting in GT really work?
+- what is GTs "backtest_multi"?
+
+- additional stuff for system and backtracking
+  * moneymanagement: how much to invest
+  * broker: to calc fees
+  * CloseStrategy: close with sell signal or latest after too less profit growth in 
+    given time or after with next sell signal after one year
+  * check genius trader: orderfactory? portfolio?

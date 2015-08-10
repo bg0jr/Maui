@@ -1,0 +1,16 @@
+﻿[@page.type: backlog]
+[@subject: Maui.Trading - Indicator calculators as DataSource]
+
+Major requirement: i would like to model all dependencies of an indicator instead of hardcoding.
+maybe we will have a DSL later? or a do a model driven approach?
+
+* this is only possible for very static dependencies as the configuration via
+  .NET attributes is static (e.g. think of "NumDays" for SMA). Prototype available
+* only other option is to pass config settings with "FromStock()" call.
+* maybe we change FromStock() api to FromStock(DataDescriptor) which then contains the
+  stock and other parameters describing which data exactly is requested
+* DataSources of DataSources are not handled at the moment - those are created on
+  demand by factory and would then have to be created using binding container
+  (e.g. if one indicator uses the output of another one as input)
+
+

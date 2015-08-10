@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StarterHook xmlns="clr-namespace:Blade.Shell;assembly=Blade.Shell" 
+             xmlns:e="clr-namespace:Maui.Presentation.Excel.Scripts;assembly=Maui.Presentation.Excel" 
+             xmlns:d="clr-namespace:Maui.Data.Scripts;assembly=Maui.Data" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StarterHook.Option>-install</StarterHook.Option>
+    <StarterHook.Description>Maui configuration hook</StarterHook.Description>
+    <Sequence>
+        <Command Executable="mage" Arguments="-cc" Message="Clearing application cache"/>
+        <e:ConfigureAddIn/>
+        <d:ConfigureDbUri/>
+        <If Condition="{Not Condition={d:DatabaseExists}}"  Message="Initializing database">
+            <d:CreateDbSchema UpdateOnly="false"/>
+            <d:ImportCountries/>
+            <d:ImportCurrencies/>
+            <d:ImportDatumOrigins/>
+            <d:ImportSectors/>
+            <d:ImportStockExchanges/>
+        </If>
+    </Sequence>
+</StarterHook>

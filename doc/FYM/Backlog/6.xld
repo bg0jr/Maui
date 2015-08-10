@@ -1,0 +1,21 @@
+﻿[@page.type: backlog]
+[@backlog-item.no: 6]
+[@subject: FinancialNewsReader]
+
+As a user i have many stocks either in my protfolio or on my watch list. For those stocks i need a simple access to all relevant financial news available in the web. I want to see whether there are new news and read them easily without jumping from one web page to another.
+
+As i cannot read the news every day the system needs to track which news have been read/presented already and which not so that i can easily detect what is new to me and what not.
+
+!! Comments
+
+* Are there products available?
+* Ariva provides a lot of news but not all of them. Which other sources do we need?
+* Are there financial RSS feeds available?
+  * http://finance.yahoo.com/rssindex
+  * http://www.rss-specifications.com/finance-rss-feeds.htm
+  * http://www.ft.com/servicestools/newstracking/rss
+  * http://money.cnn.com/services/rss/
+  * http://www.accountingdegree.com/blog/2010/100-best-rss-feeds-for-your-financial-literacy/
+
+
+

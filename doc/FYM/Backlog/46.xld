@@ -1,0 +1,8 @@
+﻿[@page.type: backlog]
+[@subject: Signal handling of the IndicatorSection]
+
+- Maui.Trading.Reporting
+- On the indicators section we display weighted signals at the moment. 
+- is this the way we want it to be? basically it is correct but do we also want to see the raw
+  indicator signal? or is it enough to have it on the details report?
+- maybe both?

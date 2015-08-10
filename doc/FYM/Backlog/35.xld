@@ -1,0 +1,28 @@
+﻿[@page.type: backlog]
+[@subject: Rework Maui.Trading.Reporting]
+
+- define how we go on with reporting
+- create separate backlog items for all issues we really want to solve
+
+* all reports and sections should have similar pattern in members and building
+* make CombinedIndicatorReport public?
+* check that all sections which group reports implement IReportGrouping
+* where to put the reporting stuff: some reports are under evaluation/system/indicators - most other stuff directly under
+  rendering.core
+* combinedindicator chart also collects system chart - does not identify indicator charts
+* CombinedIndicatorChartGenerator
+  * should we have that combined chart collector? 
+  * can we let the combined indicator handle this?
+  * it is ugly to handle indicator names, it is difficult to get indicators 
+    back if fluent interface used (otherwise we need dublicate instance tracking which is also ugly)
+* add support for linking reports to the stock ranking overview
+* do we need "chart" identifiers? do we need "section" identifiers to be able to do a clean implementation
+  of generic algorithms? (combined indicator chart)
+* maybe reporting should not contain any references to analysis results - just create some methods to copy everything
+* reports
+  * we need to create all sections in ctor to guarantee some sorting - thats bad
+* add simple silverlight app for dynamic charting (dynamically define the range u 
+  want to see - use the chart control directly - no image)
+  * therefor the report needs to be available from some kind of server (e.g. Maui.Wiki) instead of flat file system
+  * or integrate it in studio? with WCF?
+  * or have a standalone reporting server?

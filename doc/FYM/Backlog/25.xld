@@ -1,0 +1,13 @@
+﻿[@page.type: backlog]
+[@subject: Validate data series]
+
+
+- how to mark a year of stock prices as "valid"
+  - what is valid? do we need a calendar?
+  - or do we say if we got the year/month at once via historical prices it is valid?
+  - can we apply some heuristics? (3 times same value = error?, 5 days no value == error?)
+- how to mark it technically?
+  - mark the single price itself?
+  - use some kind of hash?
+  - read s.th. about it in the net!
+

@@ -1,0 +1,6 @@
+﻿[@page.type: backlog]
+[@subject: ApplicationTemplate.IExtensionPointConfig improvements]
+
+* we need to support multiple extension points in a config
+* currently this is not possible
+* we need s.th. like "interface" or "connector"

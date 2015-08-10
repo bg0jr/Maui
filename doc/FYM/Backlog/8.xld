@@ -1,0 +1,9 @@
+﻿[@page.type: backlog]
+[@backlog-item.no: 8]
+[@subject: YahooProvider for HistoricalPrices]
+
+It has been reported that the provider does not work anylonger.
+Write a test to double check it and fix if necessary.
+
+
+

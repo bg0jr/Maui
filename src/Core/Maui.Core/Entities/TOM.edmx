@@ -1,0 +1,895 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TomEntitiesModel.Store" Alias="Self" Provider="System.Data.SQLite" ProviderManifestToken="ISO8601" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="TomEntitiesModelStoreContainer">
+          <EntitySet Name="catalog" EntityType="TomEntitiesModel.Store.catalog" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="catalog_contents" EntityType="TomEntitiesModel.Store.catalog_contents" store:Type="Tables" store:Name="catalog_contents" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="company" EntityType="TomEntitiesModel.Store.company" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="company_sectors" EntityType="TomEntitiesModel.Store.company_sectors" store:Type="Tables" store:Name="company_sectors" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="countries" EntityType="TomEntitiesModel.Store.countries" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="country_aliases" EntityType="TomEntitiesModel.Store.country_aliases" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="currency" EntityType="TomEntitiesModel.Store.currency" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="datum_origin" EntityType="TomEntitiesModel.Store.datum_origin" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="db_metadata" EntityType="TomEntitiesModel.Store.db_metadata" store:Type="Tables" store:Name="db_metadata" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="orders" EntityType="TomEntitiesModel.Store.orders" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="portfolios" EntityType="TomEntitiesModel.Store.portfolios" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="positions" EntityType="TomEntitiesModel.Store.positions" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="sector" EntityType="TomEntitiesModel.Store.sector" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="sector_aliases" EntityType="TomEntitiesModel.Store.sector_aliases" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="stock" EntityType="TomEntitiesModel.Store.stock" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="stock_exchange" EntityType="TomEntitiesModel.Store.stock_exchange" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="stock_price" EntityType="TomEntitiesModel.Store.stock_price" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="traded_stock" EntityType="TomEntitiesModel.Store.traded_stock" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="position_executed_orders" EntityType="TomEntitiesModel.Store.position_executed_orders" store:Type="Views" store:Name="position_executed_orders" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+            <DefiningQuery>SELECT 
+      [position_executed_orders].[position_id] AS [position_id], 
+      [position_executed_orders].[order_id] AS [order_id]
+      FROM [position_executed_orders] AS [position_executed_orders]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="position_pending_orders" EntityType="TomEntitiesModel.Store.position_pending_orders" store:Type="Views" store:Name="position_pending_orders" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+            <DefiningQuery>SELECT 
+      [position_pending_orders].[position_id] AS [position_id], 
+      [position_pending_orders].[order_id] AS [order_id]
+      FROM [position_pending_orders] AS [position_pending_orders]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <EntityType Name="catalog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'main.catalog_contents' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="catalog_contents">
+          <Key>
+            <PropertyRef Name="catalog_id" />
+            <PropertyRef Name="traded_stock_id" />
+          </Key>
+          <Property Name="catalog_id" Type="integer" Nullable="false" />
+          <Property Name="traded_stock_id" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="company">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="origin_country_id" Type="integer" />
+          <Property Name="id" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" />
+          <Property Name="symbol" Type="nvarchar" />
+          <Property Name="comment" Type="nvarchar" />
+          <Property Name="business_year" Type="nvarchar" />
+          <Property Name="sector_id" Type="integer" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'main.company_sectors' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="company_sectors">
+          <Key>
+            <PropertyRef Name="company_id" />
+            <PropertyRef Name="sector_id" />
+          </Key>
+          <Property Name="company_id" Type="integer" Nullable="false" />
+          <Property Name="sector_id" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="countries">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="lcid" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="country_aliases">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="country_id" Type="integer" Nullable="false" />
+          <Property Name="alias" Type="nvarchar" Nullable="false" />
+        </EntityType>
+        <EntityType Name="currency">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" />
+          <Property Name="symbol" Type="nvarchar" Nullable="false" />
+        </EntityType>
+        <EntityType Name="datum_origin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'main.db_metadata' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="db_metadata">
+          <Key>
+            <PropertyRef Name="key" />
+          </Key>
+          <Property Name="key" Type="nvarchar" Nullable="false" />
+          <Property Name="value" Type="nvarchar" />
+        </EntityType>
+        <EntityType Name="orders">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="cost" Type="float" Nullable="false" />
+          <Property Name="indicative_stop" Type="float" />
+          <Property Name="is_buy" Type="bit" Nullable="false" />
+          <Property Name="is_discardable" Type="bit" Nullable="false" />
+          <Property Name="is_marged" Type="bit" Nullable="false" />
+          <Property Name="price" Type="float" Nullable="false" />
+          <Property Name="submission_date" Type="nvarchar" Nullable="false" />
+          <Property Name="quantity" Type="integer" Nullable="false" />
+          <Property Name="source" Type="nvarchar" />
+          <Property Name="traded_stock_id" Type="integer" Nullable="false" />
+          <Property Name="type" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="portfolios">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="broker" Type="nvarchar" Nullable="false" />
+          <Property Name="cash" Type="float" Nullable="false" />
+          <Property Name="initial_sum" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="positions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="quantity" Type="integer" Nullable="false" />
+          <Property Name="open_date" Type="nvarchar" Nullable="false" />
+          <Property Name="open_price" Type="float" Nullable="false" />
+          <Property Name="close_date" Type="nvarchar" />
+          <Property Name="close_price" Type="float" />
+          <Property Name="is_long" Type="bit" Nullable="false" />
+          <Property Name="is_marged" Type="bit" Nullable="false" />
+          <Property Name="stop_price" Type="float" />
+          <Property Name="source" Type="nvarchar" />
+          <Property Name="intended_to_close" Type="bit" Nullable="false" />
+          <Property Name="traded_stock_id" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sector">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sector_aliases">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="sector_id" Type="integer" Nullable="false" />
+          <Property Name="alias" Type="nvarchar" Nullable="false" />
+        </EntityType>
+        <EntityType Name="stock">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="isin" Type="nvarchar" Nullable="false" />
+          <Property Name="type" Type="integer" Nullable="false" />
+          <Property Name="company_id" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="stock_exchange">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" />
+          <Property Name="symbol" Type="nvarchar" Nullable="false" />
+          <Property Name="currency_id" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="stock_price">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="datum_origin_id" Type="integer" Nullable="false" />
+          <Property Name="timestamp" Type="nvarchar" Nullable="false" />
+          <Property Name="traded_stock_id" Type="integer" Nullable="false" />
+          <Property Name="date" Type="nvarchar" Nullable="false" />
+          <Property Name="open" Type="float" />
+          <Property Name="high" Type="float" />
+          <Property Name="low" Type="float" />
+          <Property Name="close" Type="float" Nullable="false" />
+          <Property Name="volume" Type="integer" />
+        </EntityType>
+        <EntityType Name="traded_stock">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="wpkn" Type="nvarchar" />
+          <Property Name="symbol" Type="nvarchar" Nullable="false" />
+          <Property Name="stock_id" Type="integer" Nullable="false" />
+          <Property Name="stock_exchange_id" Type="integer" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'main.position_executed_orders' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="position_executed_orders">
+          <Key>
+            <PropertyRef Name="position_id" />
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="position_id" Type="integer" Nullable="false" />
+          <Property Name="order_id" Type="integer" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'main.position_pending_orders' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="position_pending_orders">
+          <Key>
+            <PropertyRef Name="position_id" />
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="position_id" Type="integer" Nullable="false" />
+          <Property Name="order_id" Type="integer" Nullable="false" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TomEntitiesModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="TomEntities" a:LazyLoadingEnabled="true" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" b:TypeAccess="Internal" xmlns:b="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+          <EntitySet Name="StockCatalogs" EntityType="TomEntitiesModel.StockCatalog" />
+          <EntitySet Name="Companies" EntityType="TomEntitiesModel.Company" />
+          <EntitySet Name="Currencies" EntityType="TomEntitiesModel.Currency" />
+          <EntitySet Name="DatumOrigins" EntityType="TomEntitiesModel.DatumOrigin" />
+          <EntitySet Name="MetadataSet" EntityType="TomEntitiesModel.Metadata" />
+          <EntitySet Name="Sectors" EntityType="TomEntitiesModel.Sector" />
+          <EntitySet Name="Stocks" EntityType="TomEntitiesModel.Stock" />
+          <EntitySet Name="StockExchanges" EntityType="TomEntitiesModel.StockExchange" />
+          <EntitySet Name="StockPrices" EntityType="TomEntitiesModel.StockPrice" />
+          <EntitySet Name="TradedStocks" EntityType="TomEntitiesModel.TradedStock" />
+          <AssociationSet Name="StockCompany" Association="TomEntitiesModel.StockCompany">
+            <End Role="Stock" EntitySet="Stocks" />
+            <End Role="Company" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="TradedStockStock" Association="TomEntitiesModel.TradedStockStock">
+            <End Role="TradedStock" EntitySet="TradedStocks" />
+            <End Role="Stock" EntitySet="Stocks" />
+          </AssociationSet>
+          <AssociationSet Name="StockExchangeCurrency" Association="TomEntitiesModel.StockExchangeCurrency">
+            <End Role="StockExchange" EntitySet="StockExchanges" />
+            <End Role="Currency" EntitySet="Currencies" />
+          </AssociationSet>
+          <AssociationSet Name="StockPriceTradedStock" Association="TomEntitiesModel.StockPriceTradedStock">
+            <End Role="StockPrice" EntitySet="StockPrices" />
+            <End Role="TradedStock" EntitySet="TradedStocks" />
+          </AssociationSet>
+          <AssociationSet Name="StockExchangeTradedStock" Association="TomEntitiesModel.StockExchangeTradedStock">
+            <End Role="StockExchange" EntitySet="StockExchanges" />
+            <End Role="TradedStock" EntitySet="TradedStocks" />
+          </AssociationSet>
+          <AssociationSet Name="DatumOriginStockPrice" Association="TomEntitiesModel.DatumOriginStockPrice">
+            <End Role="DatumOrigin" EntitySet="DatumOrigins" />
+            <End Role="StockPrice" EntitySet="StockPrices" />
+          </AssociationSet>
+          <AssociationSet Name="CatalogTradedStock" Association="TomEntitiesModel.CatalogTradedStock">
+            <End Role="Catalog" EntitySet="StockCatalogs" />
+            <End Role="TradedStock" EntitySet="TradedStocks" />
+          </AssociationSet>
+          <EntitySet Name="Orders" EntityType="TomEntitiesModel.Order" />
+          <EntitySet Name="Portfolios" EntityType="TomEntitiesModel.Portfolio" />
+          <EntitySet Name="Positions" EntityType="TomEntitiesModel.Position" />
+          <AssociationSet Name="PendingOrders" Association="TomEntitiesModel.PendingOrders">
+            <End Role="Positions" EntitySet="Positions" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="OrderTradedStock" Association="TomEntitiesModel.OrderTradedStock">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="TradedStock" EntitySet="TradedStocks" /></AssociationSet>
+          <AssociationSet Name="ExecutedOrder" Association="TomEntitiesModel.ExecutedOrder">
+            <End Role="Position" EntitySet="Positions" />
+            <End Role="Order" EntitySet="Orders" /></AssociationSet>
+          <AssociationSet Name="PositionTradedStock" Association="TomEntitiesModel.PositionTradedStock">
+            <End Role="Position" EntitySet="Positions" />
+            <End Role="TradedStock" EntitySet="TradedStocks" /></AssociationSet>
+          <EntitySet Name="Countries" EntityType="TomEntitiesModel.Country" />
+          <AssociationSet Name="CompanyCountry" Association="TomEntitiesModel.CompanyCountry">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Country" EntitySet="Countries" /></AssociationSet>
+          <EntitySet Name="CountryAliases" EntityType="TomEntitiesModel.CountryAlias" />
+          <AssociationSet Name="CountryCountryAlias" Association="TomEntitiesModel.CountryCountryAlias">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="CountryAlias" EntitySet="CountryAliases" /></AssociationSet>
+          <AssociationSet Name="CompanySector" Association="TomEntitiesModel.CompanySector">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Sector" EntitySet="Sectors" /></AssociationSet>
+          <EntitySet Name="SectorAliases" EntityType="TomEntitiesModel.SectorAlias" />
+          <AssociationSet Name="SectorSectorAlias" Association="TomEntitiesModel.SectorSectorAlias">
+            <End Role="Sector" EntitySet="Sectors" />
+            <End Role="SectorAlias" EntitySet="SectorAliases" /></AssociationSet></EntityContainer>
+        <EntityType Name="StockCatalog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="TradedStocks" Relationship="TomEntitiesModel.CatalogTradedStock" FromRole="Catalog" ToRole="TradedStock" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" a:SetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="Symbol" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="Comment" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="RawBusinessYear" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" a:SetterAccess="Protected" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="Stocks" Relationship="TomEntitiesModel.StockCompany" FromRole="Company" ToRole="Stock" />
+          <NavigationProperty Name="CountryOfOrigin" Relationship="TomEntitiesModel.CompanyCountry" FromRole="Company" ToRole="Country" />
+          <NavigationProperty Name="Sectors" Relationship="TomEntitiesModel.CompanySector" FromRole="Company" ToRole="Sector" /></EntityType>
+        <EntityType Name="Currency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="Symbol" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="StockExchanges" Relationship="TomEntitiesModel.StockExchangeCurrency" FromRole="Currency" ToRole="StockExchange" />
+        </EntityType>
+        <EntityType Name="DatumOrigin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="StockPrices" Relationship="TomEntitiesModel.DatumOriginStockPrice" FromRole="DatumOrigin" ToRole="StockPrice" />
+        </EntityType>
+        <EntityType Name="Metadata">
+          <Key>
+            <PropertyRef Name="Key" />
+          </Key>
+          <Property Name="Key" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="Value" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Sector">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Companies" Relationship="TomEntitiesModel.CompanySector" FromRole="Sector" ToRole="Company" />
+          <NavigationProperty Name="Aliases" Relationship="TomEntitiesModel.SectorSectorAlias" FromRole="Sector" ToRole="SectorAlias" /></EntityType>
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" a:SetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="Isin" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="RawType" Type="Int64" Nullable="false" a:SetterAccess="Protected" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="Company" Relationship="TomEntitiesModel.StockCompany" FromRole="Stock" ToRole="Company" />
+          <NavigationProperty Name="TradedStocks" Relationship="TomEntitiesModel.TradedStockStock" FromRole="Stock" ToRole="TradedStock" />
+        </EntityType>
+        <EntityType Name="StockExchange">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="Symbol" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Currency" Relationship="TomEntitiesModel.StockExchangeCurrency" FromRole="StockExchange" ToRole="Currency" />
+          <NavigationProperty Name="TradedStocks" Relationship="TomEntitiesModel.StockExchangeTradedStock" FromRole="StockExchange" ToRole="TradedStock" />
+        </EntityType>
+        <EntityType Name="StockPrice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="Timestamp" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="DateInternal" Type="String" Nullable="false" MaxLength="2147483647" Unicode="true" FixedLength="false" a:GetterAccess="Protected" a:SetterAccess="Protected" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="Open" Type="Double" />
+          <Property Name="High" Type="Double" />
+          <Property Name="Low" Type="Double" />
+          <Property Name="Close" Type="Double" Nullable="false" />
+          <Property Name="Volume" Type="Int64" />
+          <NavigationProperty Name="TradedStock" Relationship="TomEntitiesModel.StockPriceTradedStock" FromRole="StockPrice" ToRole="TradedStock" />
+          <NavigationProperty Name="DatumOrigin" Relationship="TomEntitiesModel.DatumOriginStockPrice" FromRole="StockPrice" ToRole="DatumOrigin" />
+        </EntityType>
+        <EntityType Name="TradedStock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="Wpkn" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
+          <Property Name="Symbol" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" Nullable="false" />
+          <NavigationProperty Name="Stock" Relationship="TomEntitiesModel.TradedStockStock" FromRole="TradedStock" ToRole="Stock" />
+          <NavigationProperty Name="StockPrices" Relationship="TomEntitiesModel.StockPriceTradedStock" FromRole="TradedStock" ToRole="StockPrice" />
+          <NavigationProperty Name="StockExchange" Relationship="TomEntitiesModel.StockExchangeTradedStock" FromRole="TradedStock" ToRole="StockExchange" />
+          <NavigationProperty Name="Catalogs" Relationship="TomEntitiesModel.CatalogTradedStock" FromRole="TradedStock" ToRole="Catalog" />
+          <NavigationProperty Name="Orders" Relationship="TomEntitiesModel.OrderTradedStock" FromRole="TradedStock" ToRole="Order" />
+          <NavigationProperty Name="Positions" Relationship="TomEntitiesModel.PositionTradedStock" FromRole="TradedStock" ToRole="Position" /></EntityType>
+        <Association Name="StockCompany">
+          <End Type="TomEntitiesModel.Stock" Role="Stock" Multiplicity="*" />
+          <End Type="TomEntitiesModel.Company" Role="Company" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+        </Association>
+        <Association Name="TradedStockStock">
+          <End Type="TomEntitiesModel.TradedStock" Role="TradedStock" Multiplicity="*" />
+          <End Type="TomEntitiesModel.Stock" Role="Stock" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+        </Association>
+        <Association Name="StockExchangeCurrency">
+          <End Type="TomEntitiesModel.StockExchange" Role="StockExchange" Multiplicity="*" />
+          <End Type="TomEntitiesModel.Currency" Role="Currency" Multiplicity="1" />
+        </Association>
+        <Association Name="StockPriceTradedStock">
+          <End Type="TomEntitiesModel.StockPrice" Role="StockPrice" Multiplicity="*" />
+          <End Type="TomEntitiesModel.TradedStock" Role="TradedStock" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+        </Association>
+        <Association Name="StockExchangeTradedStock">
+          <End Type="TomEntitiesModel.StockExchange" Role="StockExchange" Multiplicity="1" />
+          <End Type="TomEntitiesModel.TradedStock" Role="TradedStock" Multiplicity="*" />
+        </Association>
+        <Association Name="DatumOriginStockPrice">
+          <End Type="TomEntitiesModel.DatumOrigin" Role="DatumOrigin" Multiplicity="1" />
+          <End Type="TomEntitiesModel.StockPrice" Role="StockPrice" Multiplicity="*" />
+        </Association>
+        <Association Name="CatalogTradedStock">
+          <End Type="TomEntitiesModel.StockCatalog" Role="Catalog" Multiplicity="*" />
+          <End Type="TomEntitiesModel.TradedStock" Role="TradedStock" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="Cost" Type="Double" Nullable="false" />
+          <Property Name="IndicativeStop" Type="Double" Nullable="true" />
+          <Property Name="IsBuy" Type="Boolean" Nullable="false" />
+          <Property Name="IsDiscardable" Type="Boolean" Nullable="false" />
+          <Property Name="IsMarged" Type="Boolean" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="SubmissionDateInternal" Type="String" Nullable="false" />
+          <Property Name="Quantity" Type="Int64" Nullable="false" />
+          <Property Name="Source" Type="String" Nullable="true" a:SetterAccess="Protected" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="TypeInternal" Type="Int16" Nullable="false" a:GetterAccess="Protected" a:SetterAccess="Protected" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="PendingInPosition" Relationship="TomEntitiesModel.PendingOrders" FromRole="Orders" ToRole="Positions" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="TradedStock" Relationship="TomEntitiesModel.OrderTradedStock" FromRole="Order" ToRole="TradedStock" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="ExecutedInPosition" Relationship="TomEntitiesModel.ExecutedOrder" FromRole="Order" ToRole="Position" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" /></EntityType>
+        <EntityType Name="Portfolio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="BrokerInternal" Type="String" Nullable="false" a:GetterAccess="Protected" a:SetterAccess="Protected" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="Cash" Type="Double" Nullable="false" />
+          <Property Name="InitialSum" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="Quantity" Type="Int64" Nullable="false" />
+          <Property Name="OpenDateInternal" Type="String" Nullable="false" />
+          <Property Name="OpenPrice" Type="Double" Nullable="false" />
+          <Property Name="CloseDateInternal" Type="String" Nullable="true" />
+          <Property Name="ClosePrice" Type="Double" Nullable="true" />
+          <Property Name="IsLong" Type="Boolean" Nullable="false" />
+          <Property Name="IsMarged" Type="Boolean" Nullable="false" />
+          <Property Name="StopPrice" Type="Double" Nullable="true" />
+          <Property Name="Source" Type="String" Nullable="true" />
+          <Property Name="IntendedToClose" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PendingOrders" Relationship="TomEntitiesModel.PendingOrders" FromRole="Positions" ToRole="Orders" />
+          <NavigationProperty Name="ExecutedOrders" Relationship="TomEntitiesModel.ExecutedOrder" FromRole="Position" ToRole="Order" />
+          <NavigationProperty Name="TradedStock" Relationship="TomEntitiesModel.PositionTradedStock" FromRole="Position" ToRole="TradedStock" /></EntityType>
+        <Association Name="PendingOrders">
+          <End Type="TomEntitiesModel.Position" Role="Positions" Multiplicity="*" />
+          <End Type="TomEntitiesModel.Order" Role="Orders" Multiplicity="*" />
+        </Association>
+        <Association Name="OrderTradedStock">
+          <End Type="TomEntitiesModel.Order" Role="Order" Multiplicity="*" />
+          <End Type="TomEntitiesModel.TradedStock" Role="TradedStock" Multiplicity="1" >
+          </End></Association>
+        <Association Name="ExecutedOrder">
+          <End Type="TomEntitiesModel.Position" Role="Position" Multiplicity="*" />
+          <End Type="TomEntitiesModel.Order" Role="Order" Multiplicity="*" /></Association>
+        <Association Name="PositionTradedStock">
+          <End Type="TomEntitiesModel.Position" Role="Position" Multiplicity="*" />
+          <End Type="TomEntitiesModel.TradedStock" Role="TradedStock" Multiplicity="1" /></Association>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" /></Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="LCID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Companies" Relationship="TomEntitiesModel.CompanyCountry" FromRole="Country" ToRole="Company" />
+          <NavigationProperty Name="Aliases" Relationship="TomEntitiesModel.CountryCountryAlias" FromRole="Country" ToRole="CountryAlias" /></EntityType>
+        <Association Name="CompanyCountry">
+          <End Type="TomEntitiesModel.Company" Role="Company" Multiplicity="*" />
+          <End Type="TomEntitiesModel.Country" Role="Country" Multiplicity="0..1" /></Association>
+        <EntityType Name="CountryAlias">
+          <Key>
+            <PropertyRef Name="Id" /></Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Country" Relationship="TomEntitiesModel.CountryCountryAlias" FromRole="CountryAlias" ToRole="Country" /></EntityType>
+        <Association Name="CountryCountryAlias">
+          <End Type="TomEntitiesModel.Country" Role="Country" Multiplicity="1" />
+          <End Type="TomEntitiesModel.CountryAlias" Role="CountryAlias" Multiplicity="*" /></Association>
+        <Association Name="CompanySector">
+          <End Type="TomEntitiesModel.Company" Role="Company" Multiplicity="*" />
+          <End Type="TomEntitiesModel.Sector" Role="Sector" Multiplicity="*" /></Association>
+        <EntityType Name="SectorAlias">
+          <Key>
+            <PropertyRef Name="Id" /></Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Sector" Relationship="TomEntitiesModel.SectorSectorAlias" FromRole="SectorAlias" ToRole="Sector" /></EntityType>
+        <Association Name="SectorSectorAlias">
+          <End Type="TomEntitiesModel.Sector" Role="Sector" Multiplicity="1" />
+          <End Type="TomEntitiesModel.SectorAlias" Role="SectorAlias" Multiplicity="*" /></Association></Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TomEntitiesModelStoreContainer" CdmEntityContainer="TomEntities">
+          <EntitySetMapping Name="StockCatalogs">
+            <EntityTypeMapping TypeName="IsTypeOf(TomEntitiesModel.StockCatalog)">
+              <MappingFragment StoreEntitySet="catalog">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="IsTypeOf(TomEntitiesModel.Company)">
+              <MappingFragment StoreEntitySet="company">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="name" />
+                <ScalarProperty Name="Symbol" ColumnName="symbol" />
+                <ScalarProperty Name="Comment" ColumnName="comment" />
+                <ScalarProperty Name="RawBusinessYear" ColumnName="business_year" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Currencies">
+            <EntityTypeMapping TypeName="IsTypeOf(TomEntitiesModel.Currency)">
+              <MappingFragment StoreEntitySet="currency">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="name" />
+                <ScalarProperty Name="Symbol" ColumnName="symbol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DatumOrigins">
+            <EntityTypeMapping TypeName="IsTypeOf(TomEntitiesModel.DatumOrigin)">
+              <MappingFragment StoreEntitySet="datum_origin">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MetadataSet">
+            <EntityTypeMapping TypeName="IsTypeOf(TomEntitiesModel.Metadata)">
+              <MappingFragment StoreEntitySet="db_metadata">
+                <ScalarProperty Name="Key" ColumnName="key" />
+                <ScalarProperty Name="Value" ColumnName="value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sectors">
+            <EntityTypeMapping TypeName="IsTypeOf(TomEntitiesModel.Sector)">
+              <MappingFragment StoreEntitySet="sector">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stocks">
+            <EntityTypeMapping TypeName="IsTypeOf(TomEntitiesModel.Stock)">
+              <MappingFragment StoreEntitySet="stock">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="Isin" ColumnName="isin" />
+                <ScalarProperty Name="RawType" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StockExchanges">
+            <EntityTypeMapping TypeName="IsTypeOf(TomEntitiesModel.StockExchange)">
+              <MappingFragment StoreEntitySet="stock_exchange">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="name" />
+                <ScalarProperty Name="Symbol" ColumnName="symbol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StockPrices">
+            <EntityTypeMapping TypeName="IsTypeOf(TomEntitiesModel.StockPrice)">
+              <MappingFragment StoreEntitySet="stock_price">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="Timestamp" ColumnName="timestamp" />
+                <ScalarProperty Name="DateInternal" ColumnName="date" />
+                <ScalarProperty Name="Open" ColumnName="open" />
+                <ScalarProperty Name="High" ColumnName="high" />
+                <ScalarProperty Name="Low" ColumnName="low" />
+                <ScalarProperty Name="Close" ColumnName="close" />
+                <ScalarProperty Name="Volume" ColumnName="volume" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TradedStocks">
+            <EntityTypeMapping TypeName="IsTypeOf(TomEntitiesModel.TradedStock)">
+              <MappingFragment StoreEntitySet="traded_stock">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="Wpkn" ColumnName="wpkn" />
+                <ScalarProperty Name="Symbol" ColumnName="symbol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="StockCompany" TypeName="TomEntitiesModel.StockCompany" StoreEntitySet="stock">
+            <EndProperty Name="Company">
+              <ScalarProperty Name="Id" ColumnName="company_id" />
+            </EndProperty>
+            <EndProperty Name="Stock">
+              <ScalarProperty Name="Id" ColumnName="id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="TradedStockStock" TypeName="TomEntitiesModel.TradedStockStock" StoreEntitySet="traded_stock">
+            <EndProperty Name="Stock">
+              <ScalarProperty Name="Id" ColumnName="stock_id" />
+            </EndProperty>
+            <EndProperty Name="TradedStock">
+              <ScalarProperty Name="Id" ColumnName="id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="StockExchangeCurrency" TypeName="TomEntitiesModel.StockExchangeCurrency" StoreEntitySet="stock_exchange">
+            <EndProperty Name="Currency">
+              <ScalarProperty Name="Id" ColumnName="currency_id" />
+            </EndProperty>
+            <EndProperty Name="StockExchange">
+              <ScalarProperty Name="Id" ColumnName="id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="StockPriceTradedStock" TypeName="TomEntitiesModel.StockPriceTradedStock" StoreEntitySet="stock_price">
+            <EndProperty Name="TradedStock">
+              <ScalarProperty Name="Id" ColumnName="traded_stock_id" />
+            </EndProperty>
+            <EndProperty Name="StockPrice">
+              <ScalarProperty Name="Id" ColumnName="id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="StockExchangeTradedStock" TypeName="TomEntitiesModel.StockExchangeTradedStock" StoreEntitySet="traded_stock">
+            <EndProperty Name="TradedStock">
+              <ScalarProperty Name="Id" ColumnName="id" />
+            </EndProperty>
+            <EndProperty Name="StockExchange">
+              <ScalarProperty Name="Id" ColumnName="stock_exchange_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="DatumOriginStockPrice" TypeName="TomEntitiesModel.DatumOriginStockPrice" StoreEntitySet="stock_price">
+            <EndProperty Name="StockPrice">
+              <ScalarProperty Name="Id" ColumnName="id" />
+            </EndProperty>
+            <EndProperty Name="DatumOrigin">
+              <ScalarProperty Name="Id" ColumnName="datum_origin_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="CatalogTradedStock" TypeName="TomEntitiesModel.CatalogTradedStock" StoreEntitySet="catalog_contents">
+            <EndProperty Name="TradedStock">
+              <ScalarProperty Name="Id" ColumnName="traded_stock_id" />
+            </EndProperty>
+            <EndProperty Name="Catalog">
+              <ScalarProperty Name="Id" ColumnName="catalog_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="IsTypeOf(TomEntitiesModel.Order)">
+              <MappingFragment StoreEntitySet="orders">
+                <ScalarProperty Name="TypeInternal" ColumnName="type" />
+                <ScalarProperty Name="Source" ColumnName="source" />
+                <ScalarProperty Name="Quantity" ColumnName="quantity" />
+                <ScalarProperty Name="SubmissionDateInternal" ColumnName="submission_date" />
+                <ScalarProperty Name="Price" ColumnName="price" />
+                <ScalarProperty Name="IsMarged" ColumnName="is_marged" />
+                <ScalarProperty Name="IsDiscardable" ColumnName="is_discardable" />
+                <ScalarProperty Name="IsBuy" ColumnName="is_buy" />
+                <ScalarProperty Name="IndicativeStop" ColumnName="indicative_stop" />
+                <ScalarProperty Name="Cost" ColumnName="cost" />
+                <ScalarProperty Name="Id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Portfolios">
+            <EntityTypeMapping TypeName="IsTypeOf(TomEntitiesModel.Portfolio)">
+              <MappingFragment StoreEntitySet="portfolios">
+                <ScalarProperty Name="InitialSum" ColumnName="initial_sum" />
+                <ScalarProperty Name="Cash" ColumnName="cash" />
+                <ScalarProperty Name="BrokerInternal" ColumnName="broker" />
+                <ScalarProperty Name="Id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Positions">
+            <EntityTypeMapping TypeName="IsTypeOf(TomEntitiesModel.Position)">
+              <MappingFragment StoreEntitySet="positions">
+                <ScalarProperty Name="IntendedToClose" ColumnName="intended_to_close" />
+                <ScalarProperty Name="Source" ColumnName="source" />
+                <ScalarProperty Name="StopPrice" ColumnName="stop_price" />
+                <ScalarProperty Name="IsMarged" ColumnName="is_marged" />
+                <ScalarProperty Name="IsLong" ColumnName="is_long" />
+                <ScalarProperty Name="ClosePrice" ColumnName="close_price" />
+                <ScalarProperty Name="CloseDateInternal" ColumnName="close_date" />
+                <ScalarProperty Name="OpenPrice" ColumnName="open_price" />
+                <ScalarProperty Name="OpenDateInternal" ColumnName="open_date" />
+                <ScalarProperty Name="Quantity" ColumnName="quantity" />
+                <ScalarProperty Name="Id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="PendingOrders" TypeName="TomEntitiesModel.PendingOrders" StoreEntitySet="position_pending_orders">
+            <EndProperty Name="Orders">
+              <ScalarProperty Name="Id" ColumnName="order_id" /></EndProperty>
+            <EndProperty Name="Positions">
+              <ScalarProperty Name="Id" ColumnName="position_id" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="OrderTradedStock" TypeName="TomEntitiesModel.OrderTradedStock" StoreEntitySet="orders">
+            <EndProperty Name="TradedStock">
+              <ScalarProperty Name="Id" ColumnName="traded_stock_id" /></EndProperty>
+            <EndProperty Name="Order">
+              <ScalarProperty Name="Id" ColumnName="id" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="ExecutedOrder" TypeName="TomEntitiesModel.ExecutedOrder" StoreEntitySet="position_executed_orders">
+            <EndProperty Name="Order">
+              <ScalarProperty Name="Id" ColumnName="order_id" /></EndProperty>
+            <EndProperty Name="Position">
+              <ScalarProperty Name="Id" ColumnName="position_id" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="PositionTradedStock" TypeName="TomEntitiesModel.PositionTradedStock" StoreEntitySet="positions">
+            <EndProperty Name="TradedStock">
+              <ScalarProperty Name="Id" ColumnName="traded_stock_id" /></EndProperty>
+            <EndProperty Name="Position">
+              <ScalarProperty Name="Id" ColumnName="id" /></EndProperty></AssociationSetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="IsTypeOf(TomEntitiesModel.Country)">
+              <MappingFragment StoreEntitySet="countries">
+                <ScalarProperty Name="LCID" ColumnName="lcid" />
+                <ScalarProperty Name="Id" ColumnName="id" /></MappingFragment>
+              </EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="CompanyCountry" TypeName="TomEntitiesModel.CompanyCountry" StoreEntitySet="company">
+            <EndProperty Name="Country">
+              <ScalarProperty Name="Id" ColumnName="origin_country_id" /></EndProperty>
+            <EndProperty Name="Company">
+              <ScalarProperty Name="Id" ColumnName="id" /></EndProperty>
+            <Condition ColumnName="origin_country_id" IsNull="false" /></AssociationSetMapping>
+          <EntitySetMapping Name="CountryAliases">
+            <EntityTypeMapping TypeName="IsTypeOf(TomEntitiesModel.CountryAlias)">
+              <MappingFragment StoreEntitySet="country_aliases">
+                <ScalarProperty Name="Name" ColumnName="alias" />
+                <ScalarProperty Name="Id" ColumnName="id" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="CountryCountryAlias" TypeName="TomEntitiesModel.CountryCountryAlias" StoreEntitySet="country_aliases">
+            <EndProperty Name="CountryAlias">
+              <ScalarProperty Name="Id" ColumnName="id" /></EndProperty>
+            <EndProperty Name="Country">
+              <ScalarProperty Name="Id" ColumnName="country_id" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="CompanySector" TypeName="TomEntitiesModel.CompanySector" StoreEntitySet="company_sectors">
+            <EndProperty Name="Sector">
+              <ScalarProperty Name="Id" ColumnName="sector_id" /></EndProperty>
+            <EndProperty Name="Company">
+              <ScalarProperty Name="Id" ColumnName="company_id" /></EndProperty></AssociationSetMapping>
+          <EntitySetMapping Name="SectorAliases">
+            <EntityTypeMapping TypeName="IsTypeOf(TomEntitiesModel.SectorAlias)">
+              <MappingFragment StoreEntitySet="sector_aliases">
+                <ScalarProperty Name="Name" ColumnName="alias" />
+                <ScalarProperty Name="Id" ColumnName="id" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="SectorSectorAlias" TypeName="TomEntitiesModel.SectorSectorAlias" StoreEntitySet="sector_aliases">
+            <EndProperty Name="SectorAlias">
+              <ScalarProperty Name="Id" ColumnName="id" /></EndProperty>
+            <EndProperty Name="Sector">
+              <ScalarProperty Name="Id" ColumnName="sector_id" /></EndProperty></AssociationSetMapping></EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer>
+    <edmx:Connection>
+      <DesignerInfoPropertySet xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="Model2" ZoomLevel="100" xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+        <EntityTypeShape EntityType="TomEntitiesModel.StockCatalog" Width="1.5" PointX="2.75" PointY="2.875" Height="1.2636116536458335" IsExpanded="true" />
+        <EntityTypeShape EntityType="TomEntitiesModel.Company" Width="1.5" PointX="0.5" PointY="1" Height="2.2496956380208331" IsExpanded="true" />
+        <EntityTypeShape EntityType="TomEntitiesModel.Currency" Width="1.5" PointX="5" PointY="2.75" Height="1.7566536458333326" IsExpanded="true" />
+        <EntityTypeShape EntityType="TomEntitiesModel.DatumOrigin" Width="1.5" PointX="7" PointY="3.5" Height="1.4279589843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="TomEntitiesModel.Metadata" Width="1.5" PointX="9.375" PointY="3.75" Height="1.2636116536458335" IsExpanded="true" />
+        <EntityTypeShape EntityType="TomEntitiesModel.Sector" Width="1.5" PointX="2.875" PointY="1" Height="1.427958984375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TomEntitiesModel.Stock" Width="1.5" PointX="0.5" PointY="3.75" Height="1.7566536458333326" IsExpanded="true" />
+        <EntityTypeShape EntityType="TomEntitiesModel.StockExchange" Width="1.5" PointX="3.25" PointY="5.375" Height="1.7566536458333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="TomEntitiesModel.StockPrice" Width="1.5" PointX="5.25" PointY="5.5" Height="2.7427376302083335" IsExpanded="true" />
+        <EntityTypeShape EntityType="TomEntitiesModel.TradedStock" Width="1.5" PointX="0.5" PointY="6" Height="2.0853483072916674" IsExpanded="true" />
+        <AssociationConnector Association="TomEntitiesModel.StockCompany">
+          <ConnectorPoint PointX="1.25" PointY="3.75" />
+          <ConnectorPoint PointX="1.25" PointY="3.2496956380208331" />
+        </AssociationConnector>
+        <AssociationConnector Association="TomEntitiesModel.TradedStockStock">
+          <ConnectorPoint PointX="1.25" PointY="6" />
+          <ConnectorPoint PointX="1.25" PointY="5.5066536458333326" />
+        </AssociationConnector>
+        <AssociationConnector Association="TomEntitiesModel.StockExchangeCurrency">
+          <ConnectorPoint PointX="4.53125" PointY="5.375" />
+          <ConnectorPoint PointX="4.53125" PointY="4.4360563151041656" />
+          <ConnectorPoint PointX="5" PointY="4.4360563151041656" />
+        </AssociationConnector>
+        <AssociationConnector Association="TomEntitiesModel.StockPriceTradedStock">
+          <ConnectorPoint PointX="5.25" PointY="8.0489165450366347" />
+          <ConnectorPoint PointX="3.1341145833333335" PointY="8.0489165450366347" />
+          <ConnectorPoint PointX="2.9674479166666665" PointY="8.0489165450366347" />
+          <ConnectorPoint PointX="2" PointY="8.0489165450366347" /></AssociationConnector>
+        <AssociationConnector Association="TomEntitiesModel.StockExchangeTradedStock">
+          <ConnectorPoint PointX="3.25" PointY="6.5658268229166667" />
+          <ConnectorPoint PointX="3.0520833333333335" PointY="6.5658268229166659" />
+          <ConnectorPoint PointX="2.8854166666666665" PointY="6.5658268229166667" />
+          <ConnectorPoint PointX="2" PointY="6.5658268229166667" />
+        </AssociationConnector>
+        <AssociationConnector Association="TomEntitiesModel.DatumOriginStockPrice">
+          <ConnectorPoint PointX="7.15625" PointY="4.927958984375" />
+          <ConnectorPoint PointX="7.15625" PointY="6.09375" />
+          <ConnectorPoint PointX="6.75" PointY="6.09375" />
+        </AssociationConnector>
+        <AssociationConnector Association="TomEntitiesModel.CatalogTradedStock">
+          <ConnectorPoint PointX="2.96875" PointY="4.302958984375" />
+          <ConnectorPoint PointX="2.96875" PointY="7.492025729878744" />
+          <ConnectorPoint PointX="2" PointY="7.492025729878744" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="TomEntitiesModel.Order" Width="1.5" PointX="0.5" PointY="9.125" Height="3.2357796223958335" />
+        <EntityTypeShape EntityType="TomEntitiesModel.Portfolio" Width="1.5" PointX="5.375" PointY="9.125" Height="1.5923063151041665" />
+        <EntityTypeShape EntityType="TomEntitiesModel.Position" Width="1.5" PointX="2.875" PointY="9.125" Height="3.2357796223958335" />
+        <AssociationConnector Association="TomEntitiesModel.PendingOrders">
+          <ConnectorPoint PointX="2.875" PointY="10.742889811197916" />
+          <ConnectorPoint PointX="2" PointY="10.742889811197916" />
+        </AssociationConnector>
+        <AssociationConnector Association="TomEntitiesModel.OrderTradedStock">
+          <ConnectorPoint PointX="1.25" PointY="9.125" />
+          <ConnectorPoint PointX="1.25" PointY="8.41404296875" /></AssociationConnector>
+        <AssociationConnector Association="TomEntitiesModel.ExecutedOrder">
+          <ConnectorPoint PointX="2.875" PointY="9.8714449055989579" />
+          <ConnectorPoint PointX="2" PointY="9.8714449055989579" /></AssociationConnector>
+        <AssociationConnector Association="TomEntitiesModel.PositionTradedStock">
+          <ConnectorPoint PointX="3.05078125" PointY="9.125" />
+          <ConnectorPoint PointX="3.05078125" PointY="7.7555205489428847" />
+          <ConnectorPoint PointX="2" PointY="7.7555205489428847" /></AssociationConnector>
+        <EntityTypeShape EntityType="TomEntitiesModel.Country" Width="1.5" PointX="6.75" PointY="1" Height="1.5923063151041665" />
+        <AssociationConnector Association="TomEntitiesModel.CompanyCountry">
+          <ConnectorPoint PointX="1.25" PointY="1" />
+          <ConnectorPoint PointX="1.25" PointY="0.625" />
+          <ConnectorPoint PointX="7.5" PointY="0.625" />
+          <ConnectorPoint PointX="7.5" PointY="1" /></AssociationConnector>
+        <EntityTypeShape EntityType="TomEntitiesModel.CountryAlias" Width="1.5" PointX="9" PointY="1" Height="1.427958984375" />
+        <AssociationConnector Association="TomEntitiesModel.CountryCountryAlias">
+          <ConnectorPoint PointX="8.25" PointY="1.7139794921875" />
+          <ConnectorPoint PointX="9" PointY="1.7139794921875" /></AssociationConnector>
+        <AssociationConnector Association="TomEntitiesModel.CompanySector">
+          <ConnectorPoint PointX="2" PointY="1.7139794921875002" />
+          <ConnectorPoint PointX="2.875" PointY="1.7139794921875002" /></AssociationConnector>
+        <EntityTypeShape EntityType="TomEntitiesModel.SectorAlias" Width="1.5" PointX="4.875" PointY="1" Height="1.427958984375" />
+        <AssociationConnector Association="TomEntitiesModel.SectorSectorAlias">
+          <ConnectorPoint PointX="4.375" PointY="1.7139794921875" />
+          <ConnectorPoint PointX="4.875" PointY="1.7139794921875" /></AssociationConnector></Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

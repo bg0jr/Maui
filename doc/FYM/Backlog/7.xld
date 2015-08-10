@@ -1,0 +1,14 @@
+﻿[@page.type: backlog]
+[@backlog-item.no: 7]
+[@subject: Requirement tree]
+[@asap:]
+
+To keep the focus on the mission and main requirements of Maui we need a tree of requirements. It helps finding the right priority of all other requirements.
+
+!! Comments
+
+* prio 1: help in investment. not a automatic trading system. no focus on technical analysis (e.g. detection of special shapes) 
+* news to detect emotions on the market
+* indicators to help in decision making
+
+

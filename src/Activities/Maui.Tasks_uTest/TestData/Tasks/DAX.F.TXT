@@ -1,0 +1,7 @@
+Branche                	ISIN           	Land          	Kurzname                      	Währung   	Wertpapiername                                	WP-Art   	WPK     	Börsenplatz  
+                       	               	              	                              	          	                                              	         	        	             
+                       	               	              	                              	          	                                              	         	        	             
+Textil/Bekleidung      	DE0005003404   	Deutschland   	adidas                FWB     	Euro      	adidas                                        	Aktie    	500340  	Frankfurt    
+Automobil              	DE0005190003   	Deutschland   	BMW ST                FWB     	Euro      	Bayerische Motoren-Werke ST                   	Aktie    	519000  	Frankfurt    
+Index Börse            	DE0008469008   	Deutschland   	DE: DAX                       	Euro      	DAX                                           	Index    	846900  	Frankfurt    
+Elektro/Elektronik     	DE0007236101   	Deutschland   	Siemens NA            FWB     	Euro      	Siemens NA                                    	Aktie    	723610  	Frankfurt    

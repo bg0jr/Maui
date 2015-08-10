@@ -1,0 +1,10 @@
+﻿<Application x:Class="Maui.Tools.Studio.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    StartupUri="MainWindow.xaml" 
+    Startup="OnStartUp"
+    DispatcherUnhandledException="OnUnhandledException" >
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>

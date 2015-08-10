@@ -1,0 +1,53 @@
+﻿
+! Data Handling Architecture
+
+- every analysis works with "data sources" which will be bound the the "analyser" (e.g. trading system)
+
+!! DataSource framework
+
+- there are multiple types of data sources (series, single value)
+- there are multiple implementations of a data source (tom, xml)
+- there is one data source as fallback which tries to get the data on demand
+  - it uses the recognition framework to fetch the data
+  - it uses data sources to store the data in the system (optional)
+- XML data sources are used for prototyping (easy to add and manipulate)
+- TOM data sources are used for the long run (entities, UI for editing, ...)
+
+!! Data recognition framework
+
+- defines DatumLocators which describe
+  - a set of sites that provide the datum
+  - a site describes
+    - Navigation: where the datum can be found
+    - Format: how the structure of the datum has to be interpreted
+    - Content: how the content of the datum has to be interpreted (e.g. currency)
+
+- DatumLocators are described by the user using a DatumLocatorDesigner
+  - instances are stored on the hard disk
+  - readers and writers are provided to deal with the instances
+- provides "Providers" which
+  - read interpret the DatumLocators
+  - fetch the data into generic data structures (e.g. DataTable)
+  - "static" providers which provide a datum but with a fixed implementation
+- it is possible to have multiple providers for a single datum but only one datumLocator
+
+There will be a task which just updates the data using data sources and datum providers.
+
+!! Design
+
+- IDocumentNavigator resolves Navigation instance to single URI
+- CachingDocumentNavigator is decorator for IDocumentNavigator which adds a persistent cache
+  - 24h max live time for item in cache, max 30MB cache size (maybe we could later ajust max live time depending on datum)
+  - caches downloaded pages but not if originally available locally
+  - cache in %TEMP%
+- we might need to add a decorator which imitates a human and does not allow more than one "navigate" call per seconds
+- DocumentLoaderFactory
+  - create loader based on type (text,html)
+  - provides IDocumentLoader
+- IDocumentBrowser: facade for IDocumentNavigator and IDocumentLoader
+
+Decission: we do not replace WebBrowser by HtmlAgilityPack (at the moment) because it is absolutely necessary that both tools parse the document 
+in the same way so that WebSpy behaves exactly the same as the Recognition framework. This is not the case with HtmlAgilityPack 1.4.0.0
+
+Decission: We will use PropertyGrid for implementation of the DatumLocatorDesigner. We will create a "view model" around the model of the Maui.Data.Recognition
+namespace. That keeps the separation between model and UI and makes implementation of the "view model" much easier.

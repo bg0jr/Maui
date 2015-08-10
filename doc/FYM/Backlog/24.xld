@@ -1,0 +1,20 @@
+﻿[@page.type: backlog]
+[@subject: Caching calculated values]
+
+- calculating GD200 might be cheep
+- calculating multiple GDs for double or tripple cross for 500 stocks is expensive
+- other indicators might much more expensive
+
+- we need a way to transparently cache the calculated values
+- not only that we dont have to recalc but also that we only have to calc the diff
+
+- dependency: first we need to find a way to check whether a series of input data (e.g. stock prices) has not changed.
+  (see [@backlog-item:25])
+
+- caching needs to be transparent. 
+  - that means that an indicator or calculator just creates a series and it is automatically cached
+  - as dependency we model the indicator itself only. finding and using a cache needs to be done by
+    infrastructure (e.g. decorator pattern)
+
+- where to make the cache persistent? DB?
+

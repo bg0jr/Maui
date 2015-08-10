@@ -1,0 +1,22 @@
+! Future of Msl
+
+Former the reorganisation of the Maui framework into a framework of building blocks the MSL was thought
+as the most upper architectural layer used by the Maui framework user to script against the Maui framework
+and even to write trading systems.
+
+Since the reorganisation the future of the former MSL building block is unclear. Having a DSL seems to be 
+still a good idea (similar to "TradingStation") but until now it is unclear how the final Maui DSL will look
+like and how it will be used.
+
+Currently no Maui core component will be written using an interpreter based DSL because it turned out that
+this code is less well designed and less reusable.
+
+Most of the functionallity of the former MSL building block will now be moved to the other building blocks esp.
+the "Tasks" building block. No component in the "Tasks" building block should ideally depend on Maui.Scripting.
+
+The existing integration tests of the former MSL building block (which served also as samples and documentation
+for the old MSL) have been moved to the prototyping area and are no longer officially maintained (too expensive).
+
+A discussion about a new Maui DSL will be reopened when the core framework is well structured and designed, most
+of the core functionallity is available and the requirements, usage and design of a new DSL are better understood.
+

@@ -1,0 +1,11 @@
+﻿[@page.type: backlog]
+[@subject: DatumLocator debugger]
+
+- often when fetching data from the web it is hard to find out what went wrong
+- we already improved the logging but the messages are still not user-friendly
+
+- we need some kind of debugging tool which visualizes the problem to the user
+  - e.g. "dump" the failed "site" and support replay in the webspy of dumps with breakpoints where the problem occured
+  - dump needs to include the exception message so that it is displayed when the dump is played
+
+

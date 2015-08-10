@@ -1,0 +1,8 @@
+﻿[@page.type: backlog]
+[@subject: BUG - StockRanking detailed report shows wrong percentage]
+
+- on the details report we see the weigted percentage of an indicator not the real one
+- that makes it hard to judge how strong a particular indicator was
+- task: display both percentage values
+
+

@@ -1,0 +1,8 @@
+﻿[@page.type: backlog]
+[@subject: BUG - Signal handling in charts]
+
+* in case of double-crossover the signals are on the wrong curve
+* the current design makes it hard to fix that bug
+* improve design and fix the bug
+
+

@@ -1,0 +1,11 @@
+﻿[@page.type: backlog]
+[@subject: GenericDatumProvider - merge partial results from sites]
+
+- we could run into the scenario that we can parts for the datum from one site and other parts from other sites.
+- currently we do not support this scenario
+- example: one site provides EPS from 2005-20010, other site only 2011, other site forcasts for next ears
+
+- to support this we would need s.th. like a "MergedResultPolicy"
+  (basically we need to enrich the table while fetching)
+- how to handle this in IResultPolicy without casting to a specific class?
+  should we always enrich the table?

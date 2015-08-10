@@ -1,0 +1,23 @@
+﻿[@page.type: backlog]
+[@backlog-item.no: 4]
+[@subject: StockSpider]
+
+DONE
+
+As a user i want to as much stocks as possible with my trading system. Therefore I want to import my private stock lists as well as grapping the big stock indices from the web.
+
+I need at least following indices:
+
+* MSCI world, MSCI emerging markets,
+* S&P 500
+* DAX, TecDax, SDax, MDax
+
+Ideally i could specifiy how to grap stock lists of a specific format from a particular page on my own in some kind of DSL.
+
+!! Design decision
+
+* currently we dont want to spent the effort for grapping everything full automatically from the web
+* download needs to be done by user
+* user converts it into catalog xml files
+* import with those files possible
+

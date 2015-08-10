@@ -1,0 +1,4 @@
+﻿[@page.type: backlog]
+[@subject: Remove StockHandle.GetOrCreate()]
+
+* creation should be handled by tasklayer only and not implicitly

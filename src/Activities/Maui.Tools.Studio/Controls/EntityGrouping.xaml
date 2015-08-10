@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="Maui.Tools.Studio.Controls.EntitiyGrouping"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+    xmlns:local="clr-namespace:Maui.Tools.Studio.Controls"
+    Height="Auto" Width="Auto">
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <GroupBox Header="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=Title}" Padding="2,2,2,2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+            <TreeView Name="myTree" AllowDrop="True" HorizontalContentAlignment="Stretch" 
+                      VerticalContentAlignment="Stretch" TreeViewItem.Selected="myTree_Selected">
+                <TreeView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="New ..." Name="myNewMenu" Click="myNewMenu_Click"/>
+                        <MenuItem Header="Delete selected" Name="myDeleteMenu" Click="myDeleteMenu_Click"/>
+                    </ContextMenu>
+                </TreeView.ContextMenu>
+            </TreeView>
+        </GroupBox>
+    </Grid>
+</UserControl>

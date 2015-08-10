@@ -1,0 +1,139 @@
+﻿! Design decisions
+
+Here we collect all the architectual decisions made for the Maui framework.
+It should help to recall later why things are realised as they are.
+
+!! Importing from a datumprovider
+_01.06.2008_
+
+value mapping between <import/> and <dataprovider/>: value columns in 
+this context are columns which does not contain any id or date. The value 
+columns of the result table in TOM need to match the value columns defined 
+in the site format (the name need to match).
+
+!! MSL configuration
+_29.06.2008_
+
+MSL default configuration should not be stored in any MSL script but in 
+configuration files for the ConfigurationSC
+
+!! SC design
+_06.07.2008_
+
+ServiceComponents are used with "shared ownership", provider objects are not. 
+The creator of a provider object is the owner and has to destroy it on the 
+corresponding SC.
+
+!! DatumProvider error handling
+_08.07.2008_
+
+DatumProvider.Fetch() should not log any errors - warnings only. The caller 
+will handle the final result if really no site could deliver any result. E.g. 
+the <import/> task may throw an exception or log an error.
+
+!! Tooling
+_12.07.2008_
+
+we use: .NET, C#, Interpreter, no GUI all done by scripts, HTML Reporting, 
+Dynamic HTML with embedded web server
+
+!! Portage of GeniusTrader
+_01.11.2009_
+
+We will port and use the GeniusTrader components to form a base of a Maui
+trading service. Esp: backtesting, portfolio manager, trading systems, 
+filters and rules
+
+!! Usage of Resolver One
+_24.03.2009_
+
+Resolver One seems to be a very useful tool for prototyping of data manipulation
+and calculation e.g.
+
+- model prototyping
+- moving average calculation
+
+It doesnt seem to be useful as general purpose GUI component for Maui framework.
+We prototyped a portfolio management in Resolver One but does not fell that
+handy (see InAction scripts).
+
+So we will keep it up to the user to use Resolver one. Maui framework will not
+use it (except for prototyping) but still support it.
+
+!! Automatic sector detection
+_17.08.2009_
+
+We thought it might be great to automatically get all stocks of an index
+(e.g. S&P 500) and then automatically group these stocks by sector. But this
+is too difficult as there are a lot of different sector groupings available and
+each financial provider adds a company to a different sector. Additionally
+lot of bigger companies actually belong to more than one sector.
+
+So we will only take the "sector indices" (e.g. http://de.finance.yahoo.com/q/cq?d=v1&s=@BRANCHEN.DE)
+as sectors and will group our sectors/stocks under observation by our own.
+
+!! Handling of stock groupings
+_19.08.2009_
+
+We use StockCatalogs for any kind of stock groupings in Maui (e.g. indices,
+sector groupings, in observation grouping, etc).
+
+!! System feedback
+_10.09.2011_
+
+We use ILogger abstraction to protocol any kind of user feedback.
+
+- info is used for user feedback
+- debug is used for developer feedback
+
+if debug prints to much output we have to filter based on namespaces. 
+"success" messages like "finished job x successfully" will also be "info" logs. usually the user expects everything happened fine when there is no error.
+"progress" messages like "importing stock x" run with "notice" level. 
+Default level is "notice"
+
+!! Starter Hooks and Scripts
+_01.11.2012_
+
+- a starter hook is a plugin into the starter
+- a "script" is a commandline UI to a Maui functionallity
+- even if we might have scripts only in combination with starter hooks we keep both separated
+- that means a script is embedded in/called by a hook
+- we maintain different types of hooks to allow different kind of functionallity embedded into the starter
+  (e.g. maui scripts, msl scripts, batch scripts, etc)
+
+!! GUI, scripts and starter hooks
+_01.11.2012_
+
+- there is only one GUI: Maui.Tools.Studio
+- every bundle can provide "scripts". Those are wrapped by starter hooks. Prefered namespace: "<BundleRootNamespace>.Scripts"
+- Maui.Tools.Starter can be compared to the Studio - global UI for command line
+- "common"/"central" hooks are hosted by Maui.Tools.Starter.exe (e.g. installation hooks)
+- Maui.Tools.Scripts is used for "feature" scripts
+- as scripts are just another GUI and the prefered "real" GUI is WPF also scripts should follow WPF principles
+  - all options available on commandline are exposed as public properties
+  - allows perfect integration and combination in starter hooks
+  - scripts might provide properties which cannot be set on commandline but on hook definitions only
+
+!! Maui installation sequence
+_01.11.2012_
+
+- even if Maui.FW bundles are meant to be independent all of them will finally be deployed and installed.
+- it is up to the user whether he wants to use certain functionallity or not
+- consequence: no need for variation points or dynamics during installation sequence
+- bundle specific hooks are still provided by the bundles but the final "over all hook" is hosted by the starter
+  (direct binding)
+
+!! Application specific extension to maui
+_01.11.2012_
+
+- we are talking about: starter hooks, configs, dlls, datumlocators etc
+- in theory we want to keep application and framework separated
+- but currently there is to much effort to achieve this for all kinds of extensions
+- Decision: 
+  - dlls, starterhooks and datumlocators are just deployed to the same location as the FW release
+  - configs are supported to be under user home
+- Decision: consequence of the simplified approach is that we MUST NOT release Maui.FW just by copying one of the releases.
+  Instead: if we need a distributable later one we add a specific target to the build system.
+
+
+

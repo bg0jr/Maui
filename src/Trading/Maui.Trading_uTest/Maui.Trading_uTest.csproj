@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{24BF53F3-F54D-4890-8011-31AF58DB231E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Maui.Trading.UnitTests</RootNamespace>
+    <AssemblyName>Maui.Trading_uTest</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Blade.Core">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Blade.Testing">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Blade.Testing.NMock">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NMock2">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\build\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Binding\BindingContainerTests.cs" />
+    <Compile Include="Binding\DataSourceAttributeTests.cs" />
+    <Compile Include="Binding\Decorators\CachingDataSourceFactoryTests.cs" />
+    <Compile Include="Binding\Decorators\CachingEnumerableDataSourceTests.cs" />
+    <Compile Include="Binding\Decorators\CachingSingleDataSourceTests.cs" />
+    <Compile Include="Binding\Decorators\StackIEnumerableDataSourceTests.cs" />
+    <Compile Include="Binding\Decorators\PriceSeriesDataSourceFactoryTests.cs" />
+    <Compile Include="Binding\Decorators\PriceSeriesDataSourceTests.cs" />
+    <Compile Include="Binding\Decorators\StackSingleDataSourceTests.cs" />
+    <Compile Include="Binding\Decorators\StackDataSourceFactoryTests.cs" />
+    <Compile Include="Binding\Xml\XmlCurrencyDataSourceTests.cs" />
+    <Compile Include="Binding\Xml\XmlDataSourceTests.cs" />
+    <Compile Include="Data\ReducePointsOperatorTests.cs" />
+    <Compile Include="Data\InterpolateMissingDatesOperatorTests.cs" />
+    <Compile Include="Fakes\ClassWithArray.cs" />
+    <Compile Include="Fakes\ClassWithListOfComplexTypes.cs" />
+    <Compile Include="Fakes\ComplexType.cs" />
+    <Compile Include="Fakes\DoubleSetDataSource.cs" />
+    <Compile Include="Fakes\FakeSingleDataSource.cs" />
+    <Compile Include="Fakes\FakeDataSourceFactory.cs" />
+    <Compile Include="Fakes\SampleIndicator.cs" />
+    <Compile Include="Fakes\SampleObjectTree.cs" />
+    <Compile Include="Fakes\TomEntityBuilder.cs" />
+    <Compile Include="Fakes\TypeShortcuts.cs" />
+    <Compile Include="Indicators\AbstractCombinedSignalCreatorTests.cs" />
+    <Compile Include="Indicators\CombinedSignalTests.cs" />
+    <Compile Include="Indicators\AverageBasedCombinedSignalTests.cs" />
+    <Compile Include="Indicators\DefaultSignalComparerTests.cs" />
+    <Compile Include="Indicators\DefaultSignalsTests.cs" />
+    <Compile Include="Indicators\OffensiveCombinedSignalTests.cs" />
+    <Compile Include="Indicators\DefensiveCombinedSignalTests.cs" />
+    <Compile Include="Indicators\SignalTests.cs" />
+    <Compile Include="Indicators\WeightedIndicatorTests.cs" />
+    <Compile Include="Model\CaseInsensitiveMapTests.cs" />
+    <Compile Include="Model\ClosedIntervalTests.cs" />
+    <Compile Include="Model\ClosedIntervalCreatorTests.cs" />
+    <Compile Include="Model\PercentageTests.cs" />
+    <Compile Include="Model\RangeValueTests.cs" />
+    <Compile Include="Model\SeriesRangeTests.cs" />
+    <Compile Include="Model\SeriesViewportTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestData\Trading.Binding.Xml\CurrencyTable.xaml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Trading.Binding.Xml\SanDisk.xaml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Maui.Core\Maui.Core.csproj">
+      <Project>{7C90162E-F817-4DBF-861C-0CFF5ADD25C7}</Project>
+      <Name>Maui.Core</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Trading\Maui.Trading\Maui.Trading.csproj">
+      <Project>{5B0CAFEB-6344-4A96-A886-D3FC1B2E1E89}</Project>
+      <Name>Maui.Trading</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

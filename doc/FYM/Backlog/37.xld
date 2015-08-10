@@ -1,0 +1,12 @@
+﻿[@page.type: backlog]
+[@subject: Remove IronPython support from codebase]
+
+* using IronPython for scripting is basically a good idea
+* currently it is unclear how we will introduce scripting finally into Maui.FW
+* due to time constraints i will not go deeper into IronPython language currently
+* Current IronPython support is also out-dated as for new IronPython engine based on DLR we had to rewrite some stuff anyway
+
+Decision: remove IronPython from Maui.FW (we still have it in the repository) to reduce complexity.
+
+* document decision also in SDD
+* check Maui.Tools.Starter MSL folder for unneeded code

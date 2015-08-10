@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7C90162E-F817-4DBF-861C-0CFF5ADD25C7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Maui</RootNamespace>
+    <AssemblyName>Maui.Core</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\..\build\Maui.snk</AssemblyOriginatorKeyFile>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <DocumentationFile>..\..\..\bin\Debug\Maui.Core.XML</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <DocumentationFile>..\..\..\bin\Release\Maui.Core.XML</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Blade.Core">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="log4net">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DateTimeExtensions.cs" />
+    <Compile Include="Entities\BusinessYear.cs" />
+    <Compile Include="Entities\Company.cs" />
+    <Compile Include="Entities\Country.cs" />
+    <Compile Include="Entities\CountryAlias.cs" />
+    <Compile Include="Entities\Currency.cs" />
+    <Compile Include="Entities\DatumOrigin.cs" />
+    <Compile Include="Entities\EntitiesExtensions.cs" />
+    <Compile Include="Entities\EntityRepositoryFactoryBase.cs" />
+    <Compile Include="Entities\IBroker.cs" />
+    <Compile Include="Entities\IEntityRepository.cs" />
+    <Compile Include="Entities\IEntityRepositoryFactory.cs" />
+    <Compile Include="Entities\Descriptors\StockCatalogDescriptor.cs" />
+    <Compile Include="Entities\Descriptors\StockDescriptor.cs" />
+    <Compile Include="Entities\Modules\DibaBroker.cs" />
+    <Compile Include="Entities\Order.cs" />
+    <Compile Include="Entities\Portfolio.cs" />
+    <Compile Include="Entities\Position.cs" />
+    <Compile Include="Entities\Sector.cs" />
+    <Compile Include="Entities\ServiceProviderExtensions.cs" />
+    <Compile Include="Entities\Stock.cs" />
+    <Compile Include="Entities\StockCatalog.cs" />
+    <Compile Include="Entities\StockExchange.cs" />
+    <Compile Include="Entities\StockHandle.cs" />
+    <Compile Include="Entities\StockPrice.cs" />
+    <Compile Include="Entities\StockType.cs" />
+    <Compile Include="Entities\TOM.Designer.cs">
+      <DependentUpon>TOM.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Entities\TOM.Views.cs">
+      <DependentUpon>TOM.Views.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Entities\TomEntities.cs" />
+    <Compile Include="Entities\TomQueries.cs" />
+    <Compile Include="Entities\TradedStock.cs" />
+    <Compile Include="IBannerInfoProvider.cs" />
+    <Compile Include="IEnumerableExtension.cs" />
+    <Compile Include="AbstractEngineInitializer.cs" />
+    <Compile Include="Shell\Forms\ExtensionPointArguments.cs" />
+    <Compile Include="Shell\Forms\IsinArgumentAttribute.cs" />
+    <Compile Include="Shell\Forms\StockArguments.cs" />
+    <Compile Include="Shell\Forms\StockExchangeArgumentAttribute.cs" />
+    <Compile Include="Shell\Forms\CatalogArgumentAttribute.cs" />
+    <Compile Include="Shell\ExtensionPoint.cs" />
+    <Compile Include="Configuration\ConfigurationBase.cs" />
+    <Compile Include="Configuration\ConfigurationSC.cs" />
+    <Compile Include="Engine.cs" />
+    <Compile Include="EngineInitializers.cs" />
+    <Compile Include="ExceptionExtender.cs" />
+    <Compile Include="IServiceComponent.cs" />
+    <Compile Include="Logging\Log4Net\ConsoleLoggingLayout.cs" />
+    <Compile Include="Logging\Log4Net\Log4NetLogger.cs" />
+    <Compile Include="Logging\Log4Net\LoggingEventAdapter.cs" />
+    <Compile Include="Logging\Log4Net\LoggingSinkAppender.cs" />
+    <Compile Include="Logging\Log4Net\VerboseLoggingLayout.cs" />
+    <Compile Include="Logging\LoggerFactoryImpl.cs" />
+    <Compile Include="Logging\LogLevelConverter.cs" />
+    <Compile Include="MauiEnvironment.cs" />
+    <Compile Include="ServiceProvider.cs" />
+    <Compile Include="ServiceProviderExtensions.cs" />
+    <Compile Include="Entities\ITimeframedValue.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\..\..\build\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Reflection\PrePostActionDecorator.cs" />
+    <Compile Include="Reflection\ReflectionExtensions.cs" />
+    <Compile Include="Shell\MauiScope.cs" />
+    <Compile Include="StringExtensions.cs" />
+    <Compile Include="Timeframes.cs" />
+    <Compile Include="TypeConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Entities\TOM.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TOM.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="config\xsd\config.xsd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Entities\TOM.Views.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TOM.Views.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Blade.Tools.Starter.exe.xaml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,10 @@
+﻿[@page.type: backlog]
+[@subject: Additional links on SystemReport]
+
+- Maui.Trading.Reporting
+- add link to ariva and onvista technical analysis
+- add link to MauiWiki (search? or should we have RESTful services to MauiWiki? 
+  /stock/<isin>
+- should we have an AdditionalReportGenerator? or do we want to have a direct 
+  link? AdditionalReport would have the benefit that we could add more additional 
+  links (e.g. to wiki)

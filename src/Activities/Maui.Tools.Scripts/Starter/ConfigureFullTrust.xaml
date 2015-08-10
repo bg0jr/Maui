@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StarterHook xmlns="clr-namespace:Blade.Shell;assembly=Blade.Shell" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StarterHook.Option>-Config.FullTrust</StarterHook.Option>
+    <StarterHook.Description>Enables full trust for the Maui installation</StarterHook.Description>
+    <Sequence>
+        <Command Executable="caspol" Arguments="-pp off" Home="%FrameworkDir%\%FrameworkVersion%"/>
+        <Command Executable="caspol" Home="%FrameworkDir%\%FrameworkVersion%">
+            <Command.Arguments>-u -ag All_Code -url %MAUI_HOME% \* FullTrust -n "Maui" -d "Maui installation"</Command.Arguments>
+        </Command>
+        <Command Executable="caspol" Arguments="-pp on" Home="%FrameworkDir%\%FrameworkVersion%"/>
+    </Sequence>
+</StarterHook>

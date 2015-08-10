@@ -1,0 +1,16 @@
+﻿[@page.type: backlog]
+[@subject: Refactoring - WebScrapSC]
+
+- after introduction of IDocument it is nolonger bound to the web
+- usage is: "give me the document for that URI (navigation)"
+- should we rename it to "NavigationSC", "ExplorerSC"
+- should we use the name "SC" at all?
+
+- make it more modular: providers pro protocol and document
+- more tests
+- use HtmlAgilityPack instead of WinForms.WebBrowser
+  - http://vijay.screamingpens.com/archive/2008/05/26/linq-amp-lambda-part-3-html-agility-pack-to-linq.aspx
+
+- the dependency to the Web.Browser is required by WebSpy tool.
+  Before refactoring the WebScrapSC make a copy in the tool and remove everything not required by the tool
+

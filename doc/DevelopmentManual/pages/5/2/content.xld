@@ -1,0 +1,9 @@
+﻿! Starter Hooks
+
+- actually the starter and the hooks are just a Workflow inwoker and WF activities
+- in the simples case a WF is just one activity
+- we would need an activity to host scripts (how could we do this without deriving from Activity?, but still keep the 
+  possiblity to define scripts in xaml? incl. properties)
+
+Decision: keep light-weight-xaml-scripting approach for now until we discover major necessary improvements which give a reason to switch to WF.
+Actually we do not want to have komplext scripting in starter hooks ...

@@ -1,0 +1,10 @@
+﻿[@page.type: backlog]
+[@subject: Connect Maui.Tools.Wiki to Maui DB]
+
+* we collect a lot of isins in the wiki
+* connect wiki and db in that way that
+  * for every isin in the wiki a stock is created in db in background
+  * for every stock in the db a page is created
+
+
+

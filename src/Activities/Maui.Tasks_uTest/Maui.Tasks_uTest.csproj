@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{81B37202-97BB-43C0-9473-2CE18AE5D464}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Maui.Tasks.UnitTests</RootNamespace>
+    <AssemblyName>Maui.Tasks_uTest</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Blade.Core">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\build\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Dynamics\AggregateTest.cs" />
+    <Compile Include="Dynamics\AvgTest.cs" />
+    <Compile Include="Dynamics\CopySeriesTest.cs" />
+    <Compile Include="Dynamics\CrossSeriesTest.cs" />
+    <Compile Include="Dynamics\GrowthTest.cs" />
+    <Compile Include="Dynamics\HighlowTest.cs" />
+    <Compile Include="Dynamics\ImportTest.cs" />
+    <Compile Include="Dynamics\PercentageTest.cs" />
+    <Compile Include="Dynamics\PerTest.cs" />
+    <Compile Include="Dynamics\PricesTest.cs" />
+    <Compile Include="Dynamics\RunTest.cs" />
+    <Compile Include="Dynamics\SingleTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Maui.Core\Maui.Core.csproj">
+      <Project>{7C90162E-F817-4DBF-861C-0CFF5ADD25C7}</Project>
+      <Name>Maui.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Maui.Core_uTest\Maui.Core_uTest.csproj">
+      <Project>{18DA964B-2FAE-4FA4-818E-A4F8D7A493F1}</Project>
+      <Name>Maui.Core_uTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\Maui.Data\Maui.Data.csproj">
+      <Project>{C201CFBC-5362-4225-815E-8B1CD8CFC9DA}</Project>
+      <Name>Maui.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Dynamics\Maui.Dynamics\Maui.Dynamics.csproj">
+      <Project>{899DB246-28B8-4E69-8A58-1BBB01708BDD}</Project>
+      <Name>Maui.Dynamics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Dynamics\Maui.Dynamics_uTest\Maui.Dynamics_uTest.csproj">
+      <Project>{5680BFE7-ECBB-4186-A74D-195B4CBA404F}</Project>
+      <Name>Maui.Dynamics_uTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Maui.Tasks\Maui.Tasks.csproj">
+      <Project>{3077D2A1-A7C3-419A-9E9F-D7F1810187B7}</Project>
+      <Name>Maui.Tasks</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestData\Tasks\ariva.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Tasks\DAX.F.TXT">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Tasks\DAX.F\555200.TXT">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TestData\Tasks\dividend.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

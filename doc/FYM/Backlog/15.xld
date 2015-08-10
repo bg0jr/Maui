@@ -1,0 +1,83 @@
+﻿[@page.type: backlog]
+[@subject: Create an SDD]
+
+
+!! Building blocks of Maui
+
+In this section we will introduce the main building blocks off the Maui
+framework.
+
+Basically Maui is divided into four groups: _Common_, _Tools_, _Services_ and 
+_InAction_. The _Common_ building block contains the domain model, so all types
+specific for Maui and the domain "trading systems", especially the TOM 
+(TradingObject Model).
+
+The _Tools_ building block contains different tools delivered with the Maui
+framework distribution. Mainly the _Starter_ which can be used to run Maui
+scripts in different languages.
+
+The _Services_ building block contains all the Maui core services like
+DoD (Data-On-Demand), DataAccess, Trading (e.g. for Backtesting), Web 
+(for getting data from the Web), Msl (Maui Scripting Language) and much more.
+
+Finally the _InAction_ building block contains sample scripts, reusable
+code snippets and configuration presets which are build on top of the 
+Maui core services. These code pieces are aimed to be directly reusable in 
+your Maui scripts.
+
+Besides these building blocks Maui has a configuration system (in the 
+config directory of the distribution) which allows to store different
+configurations for the Maui services in "configuration sets" (named:
+applications)
+
+!! Trading ABB
+
+* think about and document the big picture of the TAB
+  * what is an indicator? should it generate signals?
+  * what is a tradingsystem?
+    * TS rate a single stock: rating, signal + report
+    * supports additional reports about one stock
+    * input: indicators, tradefilters, closestrategies, stock rating
+    * generates final signals
+    * returns a TradingSystemResult containing
+      * output from composition parts: rating, signal from indicator, output from filters and close strategies
+      * computes the overall signal
+  * how should the "stock rating" fit into this
+  * what are drivers/EvaluationSessions? (backtesting, best system settings, ranking catalogs)
+  * check GeniusTrader: Broker, MoneyManagement, TradingFilters, CloseStrategy (Portfolio management should be
+    a separate application block which is needed for backtesting) should backtesting then in a separate block
+    as well?
+  * Evaluation/EvaluationTask
+    * runs an evaluation for some input and generates a report
+    * usually output not used for further processing (entry point to Trading Application Block)
+    * input: trading system and optional other components (e.g. list of stocks, portfolio, etc)
+    * samples: stock ranking, portfolio analysis, backtracking
+
+* validate current design against the big picture
+  * document open refactorings
+  * extensibility: own indicator, own calculator, MEF?, Unity?
+* drivers/tasks: Ranking, BestIndicatorSettingsForStock, Backtracking
+* should we move StockRankingTask from Maui.Trading.Evaluation to Maui.Tasks?
+
+!! Maui.Tools.Studio
+
+* how will it be used in future?
+* how do we structure the code?
+* separate dll for controls?
+
+!! Multi-Core support
+
+* where do we allow threading in the architecture?
+  * read the book and decide design/architecture
+
+!! Decisions
+
+- "Protocol actions to the user": we do use logging for this: debug for developer, info is "verbose" for user, 
+  "notice" is progress kind messages for user. we will improve if needed. we use standard logging viewer like log2console 
+  to display messages to the user
+- indicators always generate signals for the current day
+  * charts display only strongest buy and sell (how to identify?)
+  * tradingsystems generate signals (important for backtracking)
+
+
+

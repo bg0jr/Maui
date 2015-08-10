@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<datasources>
+  <stock name="SanDisk" isin="US80004C1018"/>
+  <datasource name="Eps">
+    <items currency="Euro">
+      <item time="2010" value="0.5"/>
+    </items>
+  </datasource>
+  <datasource name="Dividend">
+    <items currency="Euro">
+    </items>
+  </datasource>
+</datasources>

@@ -1,0 +1,11 @@
+﻿[@page.type: backlog]
+[@subject: Mark data as "readonly"]
+
+- we have a lot of different data in the database
+- we do a lot automatically
+- it is easy that we overwrite data which has been "confirmed" by the user
+
+- add support for marking data as "readonly" or "confirmed"
+- or do we use "DatumValidity"?
+- how do we handle it for series? (stock prices)
+

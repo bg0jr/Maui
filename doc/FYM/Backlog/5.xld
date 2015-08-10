@@ -1,0 +1,11 @@
+﻿[@page.type: backlog]
+[@backlog-item.no: 5]
+[@subject: Cascading delete with EF]
+
+It has been observed that cascading deletes do not work properly with EF.
+
+!! Tasks
+
+* write tests to double check
+* fix if necessary
+

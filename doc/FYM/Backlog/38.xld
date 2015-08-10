@@ -1,0 +1,6 @@
+﻿[@page.type: backlog]
+[@subject: MkOffline to starter script]
+
+* that is only a very small tool
+* makes not much sense to have separte executable for this
+* do we have to use htmlagilitypack globally first?

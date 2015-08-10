@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<maui xmlns="http://www.my-maui.com/xsd/config"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="maui ../xsd/config.xsd"
+  namespace="Maui.Dynamics.Data.ScriptingInterface">
+
+  <!-- default ranking for known ("Presets") defined datum providers -->
+  <property key="DatumOrigin.Ranking" value="TaiPan, Sheets, Ariva, Yahoo.DE"/>
+
+  <!-- merging of DatumOrigins not allowed -->
+  <property key="DatumOrigin.MergingAllowed" value="false"/>
+
+  <!-- name of the table with the daily stock prices -->
+  <property key="Tables.DailyStockPrices" value="stock_price"/>
+</maui>

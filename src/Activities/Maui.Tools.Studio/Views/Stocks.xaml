@@ -1,0 +1,19 @@
+﻿<Window x:Class="Maui.Tools.Studio.Views.Stocks"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Stocks" Height="436" Width="434" 
+    Loaded="Window_Loaded"  Margin="0" Padding="0">
+    <Grid>
+        <DataGrid Name="myStocksTable" Margin="0,0,0,29">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=Stock.Company.Name}" Header="Company"/>
+                <DataGridTextColumn Binding="{Binding Path=Stock.Isin}" Header="Isin"/>
+                <DataGridTextColumn Binding="{Binding Path=Wpkn}" Header="Wpkn"/>
+                <DataGridTextColumn Binding="{Binding Path=Symbol}" Header="Symbol"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Height="23" HorizontalAlignment="Left" Name="myAddBtn" VerticalAlignment="Bottom" Width="75" Click="myAddBtn_Click">Add Stock</Button>
+        <Button Height="23" Name="myOkBtn" VerticalAlignment="Bottom" Click="myOkBtn_Click" Margin="0,0,81,0" HorizontalAlignment="Right" Width="75">Save</Button>
+        <Button Height="23" Name="myCancelBtn" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75" Click="myCancelBtn_Click">Cancel</Button>
+    </Grid>
+</Window>

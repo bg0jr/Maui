@@ -1,0 +1,16 @@
+﻿[@page.type: backlog]
+[@backlog-item.no: 11]
+[@subject: Future of ConfigurationSC]
+
+* do we still want to use it or do we want to go for xml binding?
+* move the default configs out of the "starter"
+  * put it the the assembly that needs it (VS "copy to bin location")
+* do we need the "application" still? (guess yes)
+
+* cleanup and document the design
+* do we need to add support for Env vars and/or references to other config values? What is the use case?
+* do we need that "application" thing?
+  * usually there will be just "default" and "user" settings
+  * maybe we can just support 2 hard coded folders?
+  * specifying the application is not always possible (e.g. excel plugin)
+  * should we extend to "default", "user", "machine"? which one overrides which one?

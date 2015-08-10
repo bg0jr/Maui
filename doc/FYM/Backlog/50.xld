@@ -1,0 +1,10 @@
+﻿[@page.type: backlog]
+[@page.type: backlog]
+[@subject: Fix handling of historical prices]
+
+- often the most recent days are missing in "historical prices" so we need to fetch
+  the current price too -  current impl is buggy
+- we need a detection for missing trading days
+- see [@backlog-item: 25]
+
+

@@ -1,0 +1,7 @@
+﻿[@page.type: backlog]
+[@subject: Remove Maui.Trading.GT]
+
+* remove it when everything useful is moved to Maui.Trading
+* double check good concepts
+* double check also original GT for good implementation of indicatory, stratgies, brokers, etc
+

@@ -1,0 +1,9 @@
+﻿[@page.type: backlog]
+[@subject: Maui.Trading - data validation]
+
+
+* we should add meta data to prices e.g. "is interpolated"
+* we should than add validity checks to the indicators that not more than x values
+  are interpolated. e.g. for backtracking and finding the best SMA for some stock: the 
+  info should base on priceseries which consists of at least 5 years and no more than 
+  5 % interpolated prices/values

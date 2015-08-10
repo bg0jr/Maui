@@ -1,0 +1,11 @@
+﻿[@page.type: backlog]
+[@subject: ShortCut to watch maui.log]
+
+- it is still often required to check maui log
+- lets have some kind of shortcut to start the logviewer
+- doskey in devshell?
+- batch file?
+- should we integrate the logviewer exe in maui package?: yes
+  - package should always work without dependencies to other HG repositories
+
+

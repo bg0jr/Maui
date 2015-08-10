@@ -1,0 +1,13 @@
+﻿! System overview
+
+!! Bundles
+
+- Maui.Core: Domain model, infrastructure, common code
+- Maui.Data: Data recognition, Data parsing, Data production
+- Maui.Dynamics: scripting, dynamic DB access
+- Maui.Trading: trading models
+- Maui.Activities: higher level components (tasks), GUIs and commandline scripts
+
+!! Diagram
+
+<img src="/Attachments/architecture.svg"/>

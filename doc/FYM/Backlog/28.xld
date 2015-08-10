@@ -1,0 +1,14 @@
+﻿[@page.type: backlog]
+[@subject: MultiCore Scalability]
+
+- the system should scale with multi core systems
+- define how the architecture supports multi core scalability
+  - how do we scale? based on stocks?
+- we already have scalability in Maui.Trading
+- how do we want to scale when fetching data?
+  - threading in WebScrapSC?
+  - threading in Maui.Data.Recognition
+  - threading in Maui.Task?
+- what are the right patterns?
+
+

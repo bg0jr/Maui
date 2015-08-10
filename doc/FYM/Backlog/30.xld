@@ -1,0 +1,10 @@
+﻿[@page.type: backlog]
+[@subject: Maui.Tools.DatumLocatorValidator]
+
+- we just add new sites to a DatumLocator when ever we find s.th. not working
+- we should also have a tool to validate existing sites whether those still work
+- we could work with pre-defined set of stocks
+- fetch real data from the web and validate results
+- goal: cleanup DatumLocators, validate DatumLocators before using them in production usecase
+
+

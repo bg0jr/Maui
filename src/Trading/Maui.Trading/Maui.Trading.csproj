@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5B0CAFEB-6344-4A96-A886-D3FC1B2E1E89}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Maui.Trading</RootNamespace>
+    <AssemblyName>Maui.Trading</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\..\build\Maui.snk</AssemblyOriginatorKeyFile>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Blade.Core">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\build\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Binding\Xml\AbstractDataSource.cs" />
+    <Compile Include="Binding\Xml\CollectionDataSource.cs" />
+    <Compile Include="Binding\Xml\CurrencyTable.cs" />
+    <Compile Include="Binding\Xml\Parity.cs" />
+    <Compile Include="Binding\Xml\SingleDataSource.cs" />
+    <Compile Include="Binding\Xml\DataSources.cs" />
+    <Compile Include="Binding\Xml\Stock.cs" />
+    <Compile Include="Evaluation\BackTestingStockReport.cs" />
+    <Compile Include="Evaluation\BackTestingTask.cs" />
+    <Compile Include="Binding\Decorators\AbstractCachingDataSource.cs" />
+    <Compile Include="Binding\Decorators\CachingDataSourceFactory.cs" />
+    <Compile Include="Binding\Decorators\CachingSingleDataSource.cs" />
+    <Compile Include="Binding\Decorators\CachingEnumerableDataSource.cs" />
+    <Compile Include="Binding\Decorators\IPriceSeriesDataSource.cs" />
+    <Compile Include="Binding\Decorators\PriceSeriesDataSource.cs" />
+    <Compile Include="Binding\Decorators\PriceSeriesDataSourceFactory.cs" />
+    <Compile Include="Binding\BindingContainer.cs" />
+    <Compile Include="Binding\DataSourceNames.cs" />
+    <Compile Include="Binding\FluentDataSourceFactoryBuilder.cs" />
+    <Compile Include="Binding\ICurrencyDataSource.cs" />
+    <Compile Include="Binding\ISingleDataSource.cs" />
+    <Compile Include="Binding\IEnumerableDataSource.cs" />
+    <Compile Include="Binding\Field.cs" />
+    <Compile Include="Binding\IDataSource.cs" />
+    <Compile Include="Binding\IDataSourceFactory.cs" />
+    <Compile Include="Binding\IObjectVisitor.cs" />
+    <Compile Include="Binding\Member.cs" />
+    <Compile Include="Binding\NamedParameters.cs" />
+    <Compile Include="Binding\ObjectTreeWalker.cs" />
+    <Compile Include="Binding\Property.cs" />
+    <Compile Include="Binding\Decorators\StackSingleDataSource.cs" />
+    <Compile Include="Binding\Decorators\StackEnumerableDataSource.cs" />
+    <Compile Include="Binding\Decorators\StackDataSourceFactory.cs" />
+    <Compile Include="Binding\AbstractDataSourceFactory.cs" />
+    <Compile Include="Binding\Tom\TomStockPricesDataSource.cs" />
+    <Compile Include="Binding\Tom\TomDataSourceFactory.cs" />
+    <Compile Include="Binding\Xml\XmlCurrencyDataSource.cs" />
+    <Compile Include="Binding\Xml\XmlDataSource.cs" />
+    <Compile Include="Binding\Xml\XmlDataSourceFactory.cs" />
+    <Compile Include="Binding\Xml\XmlDataStore.cs" />
+    <Compile Include="Data\InterpolateMissingDatesOperator.cs" />
+    <Compile Include="Data\IPriceSeriesOperator.cs" />
+    <Compile Include="Data\ReducePointsOperator.cs" />
+    <Compile Include="Evaluation\BackTestingReport.cs" />
+    <Compile Include="Evaluation\Order.cs" />
+    <Compile Include="Evaluation\Portfolio.cs" />
+    <Compile Include="Evaluation\TradingLog.cs" />
+    <Compile Include="Evaluation\TradingResult.cs" />
+    <Compile Include="Indicators\AbstractCombinedSignalCreator.cs" />
+    <Compile Include="Indicators\OffensiveCombinedSignalCreator.cs" />
+    <Compile Include="Model\NullObject.cs" />
+    <Compile Include="Modules\Calculators\SimpleMovingAverageCalculator.cs" />
+    <Compile Include="Modules\DefaultBindingContainer.cs" />
+    <Compile Include="Modules\DefaultCalculatorFactory.cs" />
+    <Compile Include="Modules\Indicators\ChannelBreakOut\HighLowChannel.cs" />
+    <Compile Include="Modules\Indicators\GenericIndicatorReport.cs" />
+    <Compile Include="Modules\Indicators\ISignalGenerationStrategy.cs" />
+    <Compile Include="Modules\Indicators\MissingDataReport.cs" />
+    <Compile Include="Modules\Indicators\RangeTrendCuttingSignalStrategy.cs" />
+    <Compile Include="Modules\Indicators\SimpleIndicatorBase.cs" />
+    <Compile Include="Modules\Indicators\TrendCuttingSignalStrategy.cs" />
+    <Compile Include="Modules\Indicators\TrendFollowing\DoubleCrossover.cs" />
+    <Compile Include="Modules\Indicators\TrendFollowing\SimpleMovingAverage.cs" />
+    <Compile Include="Reporting\ChartSectionVisitor.cs" />
+    <Compile Include="Reporting\AbstractTableView.cs" />
+    <Compile Include="Reporting\DefaultTableView.cs" />
+    <Compile Include="Reporting\DetailedReportAdapter.cs" />
+    <Compile Include="Reporting\ITableView.cs" />
+    <Compile Include="Reporting\TableHeader.cs" />
+    <Compile Include="Reporting\DetailedReport.cs" />
+    <Compile Include="Reporting\Rendering\HtmlTableRenderAction.cs" />
+    <Compile Include="Reporting\TableColumn.cs" />
+    <Compile Include="Reporting\TableRow.cs" />
+    <Compile Include="Reporting\TableSection.cs" />
+    <Compile Include="Reporting\ValueWithDetails.cs" />
+    <Compile Include="Systems\SystemResultComparer.cs" />
+    <Compile Include="Evaluation\StockRankingReport.cs" />
+    <Compile Include="Evaluation\StockRankingTask.cs" />
+    <Compile Include="IAnalysisResult.cs" />
+    <Compile Include="Indicators\AbstractIndicator.cs" />
+    <Compile Include="Indicators\CombinedIndicator.cs" />
+    <Compile Include="Binding\DataSourceAttribute.cs" />
+    <Compile Include="Indicators\CombinedSignal.cs" />
+    <Compile Include="Indicators\AverageBasedCombinedSignal.cs" />
+    <Compile Include="Indicators\DefensiveCombinedSignalCreator.cs" />
+    <Compile Include="Indicators\FluentIndicatorBuilder.cs" />
+    <Compile Include="Indicators\ICalculatorFactory.cs" />
+    <Compile Include="Indicators\ICombinedSignalCreator.cs" />
+    <Compile Include="Indicators\ISeriesCalculator.cs" />
+    <Compile Include="Indicators\OffensiveCombinedSignal.cs" />
+    <Compile Include="Indicators\DefensiveCombinedSignal.cs" />
+    <Compile Include="Indicators\DefaultSignalComparer.cs" />
+    <Compile Include="Indicators\IIndicatorContext.cs" />
+    <Compile Include="Indicators\IIndicator.cs" />
+    <Compile Include="Indicators\IndicatorContext.cs" />
+    <Compile Include="Indicators\DefaultSignals.cs" />
+    <Compile Include="Indicators\PerfMonSeriesCalculatorDecorator.cs" />
+    <Compile Include="Indicators\SignalType.cs" />
+    <Compile Include="Indicators\WeightedIndicator.cs" />
+    <Compile Include="Indicators\TimedSignal.cs" />
+    <Compile Include="Model\CaseInsensitiveMap.cs" />
+    <Compile Include="Model\ClosedIntervalCreator.cs" />
+    <Compile Include="Model\ITimedValueSet.cs" />
+    <Compile Include="Model\NullObjectIdentifier.cs" />
+    <Compile Include="Model\SeriesExtensions.cs" />
+    <Compile Include="Model\SeriesRange.cs" />
+    <Compile Include="Model\SeriesViewport.cs" />
+    <Compile Include="Model\ISeriesViewPort.cs" />
+    <Compile Include="Model\SignalSeries.cs" />
+    <Compile Include="Model\IMap.cs" />
+    <Compile Include="Model\IObjectIdentifier.cs" />
+    <Compile Include="Model\IRandomAccessSet.cs" />
+    <Compile Include="Model\IRandomAccessSetExtensions.cs" />
+    <Compile Include="Model\ISignalSeries.cs" />
+    <Compile Include="Model\Map.cs" />
+    <Compile Include="Model\ObjectDescriptor.cs" />
+    <Compile Include="Model\PriceSeries.cs" />
+    <Compile Include="Model\IPriceSeries.cs" />
+    <Compile Include="Model\ISortedSet.cs" />
+    <Compile Include="Model\ITimedValueSeries.cs" />
+    <Compile Include="Model\PriceSeriesRange.cs" />
+    <Compile Include="Model\PriceSeriesViewport.cs" />
+    <Compile Include="Model\SeriesIdentifier.cs" />
+    <Compile Include="Model\SignalSeriesRange.cs" />
+    <Compile Include="Model\SignalSeriesViewport.cs" />
+    <Compile Include="Model\TimedValueExtensions.cs" />
+    <Compile Include="Model\TimedValueSeries.cs" />
+    <Compile Include="Model\FundamentalValue.cs" />
+    <Compile Include="Utils\Maths.cs" />
+    <Compile Include="Model\IIdentifiableSet.cs" />
+    <Compile Include="Model\Percentage.cs" />
+    <Compile Include="Model\StockObjectIdentifier.cs" />
+    <Compile Include="Model\TimedValueSet.cs" />
+    <Compile Include="Model\RangeValue.cs" />
+    <Compile Include="Model\SimplePrice.cs" />
+    <Compile Include="Model\TimedValue.cs" />
+    <Compile Include="Indicators\IndicatorResultComparer.cs" />
+    <Compile Include="Model\TimeRange.cs" />
+    <Compile Include="Reporting\AdditionalReportsSection.cs" />
+    <Compile Include="Reporting\Rendering\HtmlAdditionalReportsRenderAction.cs" />
+    <Compile Include="Reporting\Rendering\HtmlSystemDetailsRenderAction.cs" />
+    <Compile Include="Reporting\SystemDetailsSection.cs" />
+    <Compile Include="Systems\BasicSystemReport.cs" />
+    <Compile Include="Reporting\Charting\Curve.cs" />
+    <Compile Include="Reporting\Charting\GenericStockChartViewModel.cs" />
+    <Compile Include="Reporting\Charting\GenericStockChart.cs" />
+    <Compile Include="Reporting\Charting\SignalCurve.cs" />
+    <Compile Include="Reporting\Charting\XAxis.cs" />
+    <Compile Include="Reporting\Charting\PriceAxis.cs" />
+    <Compile Include="Reporting\CombinedIndicatorChartGenerator.cs" />
+    <Compile Include="Reporting\SignalSeriesSection.cs" />
+    <Compile Include="Reporting\IChartMergeOperator.cs" />
+    <Compile Include="Reporting\IChartSection.cs" />
+    <Compile Include="Reporting\IReportGrouping.cs" />
+    <Compile Include="Reporting\IReportGenerator.cs" />
+    <Compile Include="Reporting\IReportVisitor.cs" />
+    <Compile Include="Reporting\PlainTextSection.cs" />
+    <Compile Include="Reporting\IndicatorPointsSection.cs" />
+    <Compile Include="Reporting\PriceBasedIndicatorChartMergeOperator.cs" />
+    <Compile Include="Reporting\Rendering\HtmlPlainTextRenderAction.cs" />
+    <Compile Include="Reporting\ReportWalker.cs" />
+    <Compile Include="Reporting\StandalonePriceChartGenerator.cs" />
+    <Compile Include="Reporting\StockPriceChart.cs" />
+    <Compile Include="Reporting\GenericChartSection.cs" />
+    <Compile Include="Reporting\Rendering\HtmlGenericChartRenderAction.cs" />
+    <Compile Include="Reporting\Rendering\HtmlIndicatorCollectionRenderAction.cs" />
+    <Compile Include="Reporting\Rendering\HtmlKeyValueRenderAction.cs" />
+    <Compile Include="Reporting\Rendering\HtmlRenderingUtils.cs" />
+    <Compile Include="Reporting\Rendering\HtmlStockRenderAction.cs" />
+    <Compile Include="Reporting\Rendering\HtmlReportRenderAction.cs" />
+    <Compile Include="Reporting\Rendering\IRenderAction.cs" />
+    <Compile Include="Reporting\Rendering\IRenderingContext.cs" />
+    <Compile Include="Reporting\IndicatorCollectionSection.cs" />
+    <Compile Include="Reporting\StockSection.cs" />
+    <Compile Include="Reporting\Rendering\HtmlRenderer.cs" />
+    <Compile Include="Indicators\IndicatorResult.cs" />
+    <Compile Include="Reporting\KeyValueSection.cs" />
+    <Compile Include="Reporting\Report.cs" />
+    <Compile Include="Model\DatumNames.cs" />
+    <Compile Include="Reporting\AbstractSection.cs" />
+    <Compile Include="Indicators\Signal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reporting\WriterExtensions.cs" />
+    <Compile Include="Systems\SystemResult.cs" />
+    <Compile Include="Systems\TradingSystem.cs" />
+    <Compile Include="Model\ClosedInterval.cs" />
+    <Compile Include="Utils\GeneralExtensions.cs" />
+    <Compile Include="Utils\PerfMon.cs" />
+    <Compile Include="Utils\Shell.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reporting\Rendering\Resources\tabs.style-print.css" />
+    <EmbeddedResource Include="Reporting\Rendering\Resources\tabs.style.css" />
+    <EmbeddedResource Include="Reporting\Rendering\Resources\tabs.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reporting\Rendering\Resources\table.style.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Maui.Core\Maui.Core.csproj">
+      <Project>{7C90162E-F817-4DBF-861C-0CFF5ADD25C7}</Project>
+      <Name>Maui.Core</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

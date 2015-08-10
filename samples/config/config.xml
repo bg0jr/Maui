@@ -1,0 +1,21 @@
+<?xml  version="1.0"?>
+
+<config>
+  <catalog>
+    <stocks>
+      <stock name="Tata" isin="US8765685024" currency="Euro"/>
+      <!--
+      <stock name="Sandisk" isin="US80004C1018" currency="Euro"/>
+      <stock name="Allianz" isin="DE0008404005" currency="Euro"/>
+      -->
+      <stock name="Lenovo" isin="HK0992009065" currency="Euro"/>
+    </stocks>
+  </catalog>
+  <datastores>
+    <item value="\Maui\Software\Maui\Activities\Sample\DataStore"/>
+  </datastores>
+  <extensionpoint
+    assembly="Maui.SSS.Modules"
+    implementation="Maui.SSS.Modules.Trading.BasicTradingSystem">
+  </extensionpoint>
+</config>

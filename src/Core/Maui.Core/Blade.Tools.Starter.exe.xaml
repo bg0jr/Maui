@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Settings xmlns="clr-namespace:Blade.Tools.Starter;assembly=Blade.Tools.Starter"
+          xmlns:m="clr-namespace:Maui.Shell;assembly=Maui.Core"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Settings.CreateScope>
+        <x:Static Member="m:MauiScope.Creator"/>
+    </Settings.CreateScope>
+</Settings>

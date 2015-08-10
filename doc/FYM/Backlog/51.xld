@@ -1,0 +1,9 @@
+﻿[@page.type: backlog]
+[@subject: Maui.Trading - fetch data on demand]
+
+- lets fetch the required input data on demand
+- at the moment we always need to fetch the prices manually
+- should we add a "Fetch on demand" feature?
+- could this be added to the datasources? or to the indicators?
+
+

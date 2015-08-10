@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StarterHookCollection xmlns="clr-namespace:Blade.Shell;assembly=Blade.Shell" 
+             xmlns:h="clr-namespace:Maui.Tasks.Shell;assembly=Maui.Tasks" 
+             xmlns:s="clr-namespace:Maui.Tasks.Sheets;assembly=Maui.Tasks" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StarterHook Option="-Sheet.Ticker" Description="Fetches current stock prices for given stocks">
+        <h:Sheet>
+            <s:Ticker/>
+        </h:Sheet>
+    </StarterHook>
+    <StarterHook Option="-Sheet.Catalogs" Description="Sheet to manage stock catalogs">
+        <h:Sheet>
+            <s:Catalogs/>
+        </h:Sheet>
+    </StarterHook>
+</StarterHookCollection>

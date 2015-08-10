@@ -1,0 +1,59 @@
+﻿[@page.type: backlog]
+[@subject: Maui.Tools.Portfolio]
+
+Define how we want to go on with protfolio management
+
+major requirements:
+
+* we need the management for backtesting
+* we need the tool to have easy portfolio management by the user
+
+!! Requirements
+
+- Overview of all positions of the portfolio
+  * filter support (e.g. only open positions)
+  * show all appropriate attributes of position
+- "Buy/Sell" buttons to modify the portfolio
+- Undo functionality (or at least a rollback possiblity)
+- Portfolio Evaluation
+  * get current prices of all open positions
+  * show win/loss in absolute values and in percentage
+- Compare portfolio with benchmark
+  * get first trade and last trade of portfolio
+  * let specify the benchmark (ISIN?)
+  * compare yield of benchmark with yield of portfolio)
+- Change broker of the portfolio
+- add/remove cash from money (we start with an initial value but the over all
+  cash will increase)
+
+!! Technologies
+
+- WPF for the GUI
+- DataBinding and Linq-to-Entities as DataAccess
+
+!! Implementation Steps
+
+* Portfolio, Orders, Positions to TradingEntities
+  * at least as much stuff so that we can store a portfolio completely in db
+* add simple overview grid and buy/sell buttons 
+
+!! portfoliomanagement
+
+- Position
+  - calculate all margins and costs directly when a new order
+    comes in so that everything is fixed
+    (we cannot recalculate on the fly - the broker may change)
+  - remove the broker?
+  
+- GT
+  - migrate templates/*portfolio*
+
+- Currency 
+  - how to handle currency issues in Orders, Brokers and Portfolio?
+  
+- Courtage
+  - how to store courtage and other fees dependend from stock exchange?    
+  - do we need this or is this all handled by the broker?
+
+
+

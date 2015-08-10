@@ -1,0 +1,14 @@
+﻿[@page.type: backlog]
+[@backlog-item.no: 9]
+[@subject: Handling datums from different origins]
+
+* suppose you have an EPS for the same stock and year from different origins (e.g. web sites)
+* that could happen frequently for estimated values
+
+* think about a strategy to handle this scenario
+  * select by timestamp? provider ranking?, average?
+* there is already s.th. available in Maui.Entities.Dynamics.xml
+  * clean that up
+
+
+

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StarterHook xmlns="clr-namespace:Maui.Shell;assembly=Maui.Core" 
+             xmlns:s="clr-namespace:Maui.Presentation.Excel.Scripts;assembly=Maui.Presentation.Excel" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StarterHook.Option>-Config.ExcelAddIn</StarterHook.Option>
+    <StarterHook.Description>Configure Excel AddIn</StarterHook.Description>
+    <Sequence>
+        <s:ConfigureAddIn/>
+    </Sequence>
+</StarterHook>

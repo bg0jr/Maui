@@ -1,0 +1,7 @@
+﻿[@page.type: backlog]
+[@subject: Improve Maui.Trading.Reporting.Renderer]
+
+* there should be an option to disable chart rendering
+* it should be possible to render the standalone price chart only
+* it should be possible to render the chart with system symbols only (no indicator charts)
+* could be pre-rendering filter or a renderer with configurable render actions

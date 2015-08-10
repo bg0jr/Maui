@@ -1,0 +1,26 @@
+﻿!! Immutable entities and Xaml
+
+how to handle immutable spec entities and xaml?
+
+- A1: markup extensions and clone method
+  con: code duplication - we need an extension per object
+- A2: freezable objects and clone method
+  a) Freezable object from Wpf
+  con: dependency to wpf and dependency properties
+  b) own freezable base class
+  con: only runtime detection
+- A3: mutable objects with immutable interface and clone method
+  con: code duplication - one interface per object
+- A4: xaml 2009 ctor with arguments or factory method
+  con: makes xaml uglier
+  con: no intellisense in VS
+    
+==> avoid manual code duplication by using code generation
+
+==> no freezable objects as no design time detection
+
+==> no xaml 2009: makes xaml uglier
+
+==> no markup extensions for entire spec - gives the smell of workaround
+
+==> Decision: checkout A3 + code generation

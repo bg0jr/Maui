@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StarterHook xmlns="clr-namespace:Blade.Shell;assembly=Blade.Shell" 
+             xmlns:s="clr-namespace:Maui.Data.Scripts;assembly=Maui.Data" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StarterHook.Option>-Import.Countries</StarterHook.Option>
+    <StarterHook.Description>Import default countries and country aliases</StarterHook.Description>
+    <Script>
+        <s:ImportCountries/>
+    </Script>
+</StarterHook>

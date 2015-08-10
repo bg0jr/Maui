@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StarterHook xmlns="clr-namespace:Blade.Shell;assembly=Blade.Shell" 
+             xmlns:s="clr-namespace:Maui.Data.Scripts;assembly=Maui.Data" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StarterHook.Option>-TOM.Update</StarterHook.Option>
+    <StarterHook.Description>Update TOM database schema</StarterHook.Description>
+    <Script>
+        <s:CreateDbSchema UpdateOnly="True"/>
+    </Script>
+</StarterHook>
+

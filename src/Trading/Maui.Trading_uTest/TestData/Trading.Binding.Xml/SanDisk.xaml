@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DataSources xmlns="clr-namespace:Maui.Trading.Binding.Xml;assembly=Maui.Trading"
+             xmlns:m="clr-namespace:Maui.Trading.Model;assembly=Maui.Trading"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <DataSources.Stock>
+        <Stock Name="SanDisk" Isin="US80004C1018" />
+    </DataSources.Stock>
+    <DataSources.Sources>
+        <CollectionDataSource Name="Prices" Currency="Dollar">
+            <m:SimplePrice Time="2010-12-13" Value="4.63"/>
+            <m:SimplePrice Time="2010-12-12" Value="4.53"/>
+            <m:SimplePrice Time="2010-12-11" Value="4.43"/>
+            <m:SimplePrice Time="2010-12-10" Value="4.33"/>
+        </CollectionDataSource>
+        <SingleDataSource Name="SingleValue" Currency="Euro" Value="123"/>
+        <SingleDataSource Name="SingleValue" Currency="Dollar" Value="456"/>
+    </DataSources.Sources>
+</DataSources>
+

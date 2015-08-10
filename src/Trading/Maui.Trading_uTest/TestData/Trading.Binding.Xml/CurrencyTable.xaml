@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DataSources xmlns="clr-namespace:Maui.Trading.Binding.Xml;assembly=Maui.Trading"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <DataSources.Sources>
+        <SingleDataSource Name="CurrencyParity">
+            <CurrencyTable>
+                <Parity Source="Dollar" Target="Euro" Value="0.5"/>
+                <Parity Source="CHF" Target="Euro" Value="1.1"/>
+            </CurrencyTable>
+        </SingleDataSource>
+    </DataSources.Sources>
+</DataSources>
+

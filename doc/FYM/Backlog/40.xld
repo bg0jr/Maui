@@ -1,0 +1,7 @@
+﻿[@page.type: backlog]
+[@subject: Merge different "time framed" series implementations]
+
+* check Maui.Common implementations for interesting aspects
+* replace Maui.Common implementations by Maui.Trading implementations IF users of Maui.Common impl still required
+  * otherwise simply remove the code
+* if we replace Maui.Common impl then move Maui.Trading impl to Maui.Common

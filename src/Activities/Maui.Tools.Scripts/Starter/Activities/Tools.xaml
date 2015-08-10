@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StarterHookCollection xmlns="clr-namespace:Blade.Shell;assembly=Blade.Shell" 
+             xmlns:s="clr-namespace:Maui.Tools.Scripts;assembly=Maui.Tools.Scripts" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StarterHook Option="-DBViewer" Description="Quick view into the DB">
+        <Script>
+            <s:DBViewer/>
+        </Script>
+    </StarterHook>
+    <StarterHook Option="-Stock.Delete" Description="Deletes the given stocks">
+        <Script>
+            <s:DeleteStock/>
+        </Script>
+    </StarterHook>
+    <StarterHook Option="-MkOffline" Description="Makes Html documents offline available">
+        <Script>
+            <s:MkOffline/>
+        </Script>
+    </StarterHook>
+    <StarterHook Option="-Ticker" Description="stock ticker">
+        <Script>
+            <s:Ticker/>
+        </Script>
+    </StarterHook>
+</StarterHookCollection>
+

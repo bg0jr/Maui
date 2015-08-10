@@ -1,0 +1,65 @@
+﻿[@page.type: backlog]
+[@subject: Improve usage of EntityFramework]
+
+- create a decision paper
+- what are the major issues with the current implementation
+- define the alternative including major rework
+- move all minor issues which we really want to fix to separate backlog items
+
+!! General aspects
+
+* go for POCO entities (we need persistence ignorance)
+* one EF context per "business transaction" (unitofwork and repository pattern?)
+* redesign StockHandle: lets have explicitly a light weight (tradedstock+stock) and a heavy weight one (light weigth + company, sector)
+  no lazy loading because the BLL should be PI, transactions on task layer only
+* http://blogs.msdn.com/b/adonet/archive/2009/05/21/poco-in-the-entity-framework-part-1-the-experience.aspx
+* http://mfelicio.wordpress.com/2010/02/07/managing-the-entity-framework-objectcontext-instance-lifetime-in-wcf-and-sharing-it-among-repositories/
+* http://dotnetslackers.com/articles/ado_net/Managing-Entity-Framework-ObjectContext-lifespan-and-scope-in-n-layered-ASP-NET-applications.aspx
+* http://bloggingabout.net/blogs/program.x/archive/2010/06/12/testing-entity-framework-4.aspx
+* http://blogs.msdn.com/b/diego/archive/2008/03/03/unit-testing-your-entity-framework-domain-classes.aspx
+* http://msdn.microsoft.com/en-us/ff714955.aspx
+* http://elegantcode.com/2009/12/15/entity-framework-ef4-generic-repository-and-unit-of-work-prototype/
+* we need more DB consistency checks (e.g. ISIN has to be uniq)
+
+!!! From EF book
+
+- how to do unittesting with EF? Mocks? 
+- Tools: eSqlBlast, EFExtensions, POCO adapter, EF Lazy Loading p 755, 756
+- add Maui.Tools.Studio form for companies similar to p 182
+  is there a "navigationbar" in WPF?
+- video on WPF p 193
+- mass/bulk updates with EF p 241 (box)
+- transactions p 243
+- add code for ctx.SavingChanges() to set the timestamps for TOM p 257
+- overload factory methods for all TOM entities (without Id)
+- Cascading delete (e.g. stock -> tradedstock) p 463
+- cleanup EntityConnection handling p 483
+- "using" for TomEntities (ObjectContext - remove from ServiceProvider?
+- use precompiled views p 508
+- use precompiled queries for frequently used queries p 510
+
+   
+!! Performance
+
+!!! ViewGeneration
+
+- http://blogs.msdn.com/b/adonet/archive/2008/02/04/exploring-the-performance-of-the-ado-net-entity-framework-part-1.aspx
+- EdmGen.exe /mode:ViewGeneration
+- alternative with T4
+  - http://blogs.msdn.com/b/adonet/archive/2008/06/20/how-to-use-a-t4-template-for-view-generation.aspx
+  - adapt the namespaces for VS 2010 http://msmvps.com/blogs/matthieu/archive/2009/06/29/t4-for-view-generation.aspx
+
+
+!!! general performance hints
+
+- http://blogs.msdn.com/b/adonet/archive/2008/02/11/exploring-the-performance-of-the-ado-net-entity-framework-part-2.aspx
+- NoTracking option
+- Compiled LINQ queries
+- http://www.codeproject.com/KB/database/PerfEntityFramework.aspx
+
+- db.ContextOptions.DeferredLoadingEnabled = true; (this.ContextOptions.LazyLoadingEnabled)
+  - or should we use "Include()"?
+  - use in WPF users of EF?
+  - performance?
+
+

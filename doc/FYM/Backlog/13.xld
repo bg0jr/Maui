@@ -1,0 +1,9 @@
+﻿[@page.type: backlog]
+[@subject: "User Inbox"]
+
+* The "user inbox" is a possiblity of the user to see what happened in the system (mainly through batch processing).
+* The system adds messages whenever changes happened on the "basis"
+  * e.g. newly added companies, sectors, aliases, etc 
+* inbox is visible in studio and messages can be marked as read
+* only last 100 messages are kept, rest is deleted (if already read!)
+

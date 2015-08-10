@@ -1,0 +1,6 @@
+﻿[@page.type: backlog]
+[@subject: Maui.Trading - Charts report]
+
+- it should be possible to see all charts on one page with sync'ed x axis
+- e.g. macd, RSI below chart with moving average 200
+- enables us to compare the signals of the indicator with the chart

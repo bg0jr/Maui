@@ -1,0 +1,11 @@
+﻿
+Forms:
+- Stocks
+  - add/remove stock
+- Catalogs
+  - add/remove stocks
+  - add/remove catalogs
+- Ticker
+  - one tab per catalog (e.g. InObservation)
+  - remember selected catalogs
+  - URL below ISIN

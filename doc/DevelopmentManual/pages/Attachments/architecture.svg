@@ -1,0 +1,192 @@
+<svg width="1050" height="650" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <g>
+    <title>Maui architecture</title>
+
+    <defs>
+        <rect id="rect_hlayer" x="0" y="0" width="800" height="145" fill="none" stroke="#000000"/>
+        <rect id="rect_bb" x="0" y="0" width="175" height="115" fill="none" stroke="#000000"/>
+        <rect id="rect_assembly" x="0" y="0" width="130" height="25" fill="none" stroke="#000000"/>
+    </defs>
+
+    <g id="PLL" transform="translate(190,10)">
+        <g>
+            <use xlink:href="#rect_hlayer"/>
+            <text x="20" y="72.5" transform="rotate(-90, 20, 72.5)" font-size="12" text-anchor="middle" stroke="#000000" stroke-width="0">PresLogicLayer</text>
+        </g>
+  
+        <g id="PresentationBB" transform="translate(40,15)">
+            <g>
+                <use xlink:href="#rect_bb"/>
+                <text x="20" y="57.5" transform="rotate(-90, 20, 57.5)" stroke="#000000" stroke-width="0" font-size="12" text-anchor="middle">Presentation</text>
+            </g>
+
+            <g transform="translate(35,45)">
+                <use xlink:href="#rect_assembly"/>
+                <text x="65" y="17" stroke="#000000" stroke-width="0" font-size="12" text-anchor="middle">Excel</text>
+            </g>
+            <g transform="translate(35,80)">
+                <use xlink:href="#rect_assembly"/>
+                <text x="65" y="17" stroke="#000000" stroke-width="0"  font-size="12"  text-anchor="middle">Core</text>
+            </g>
+        </g>
+
+        <g id="ToolsBB" transform="translate(225,15)">
+            <g>
+                <use xlink:href="#rect_bb"/>
+                <text x="20" y="57.5" transform="rotate(-90, 20, 57.5)" stroke="#000000" stroke-width="0" font-size="12" text-anchor="middle">Tools</text>
+            </g>
+
+            <g transform="translate(35,45)">
+                <use xlink:href="#rect_assembly"/>
+                <text x="65" y="17" stroke="#000000" stroke-width="0" font-size="12" text-anchor="middle">Scripts</text>
+            </g>
+            <g transform="translate(35,80)">
+                <use xlink:href="#rect_assembly"/>
+                <text x="65" y="17" stroke="#000000" stroke-width="0" font-size="12" text-anchor="middle">Tools</text>
+            </g>
+        </g>
+    </g>
+
+    <g id="SL" transform="translate(190,165)">
+        <g>
+            <use xlink:href="#rect_hlayer"/>
+            <text x="20" y="72.5" transform="rotate(-90, 20, 72.5)" font-size="12" text-anchor="middle" stroke="#000000" stroke-width="0">ServiceLayer</text>
+        </g>
+
+        <g id="TasksBB" transform="translate(40,15)">
+            <g>
+                <use xlink:href="#rect_bb"/>
+                <text x="20" y="57.5" transform="rotate(-90, 20, 57.5)" stroke="#000000" stroke-width="0" font-size="12" text-anchor="middle">Tasks</text>
+            </g>
+
+            <g transform="translate(35,10)">
+                <use xlink:href="#rect_assembly"/>
+                <text x="65" y="17" stroke="#000000" stroke-width="0" font-size="12" text-anchor="middle">Modules</text>
+            </g>
+            <g transform="translate(35,80)">
+                <use xlink:href="#rect_assembly"/>
+                <text x="65" y="17" stroke="#000000" stroke-width="0" font-size="12" text-anchor="middle">Core</text>
+            </g>
+        </g>
+    </g>
+
+    <g id="BLL" transform="translate(190,320)">
+        <g>
+            <use xlink:href="#rect_hlayer"/>
+            <text x="20" y="72" transform="rotate(-90, 20, 72)" font-size="12" text-anchor="middle" stroke="#000000" stroke-width="0">BizLogicLayer</text>
+        </g>
+
+        <g id="EntitiesBB" transform="translate(40,15)">
+            <g>
+                <use xlink:href="#rect_bb"/>
+                <text x="20" y="57.5" transform="rotate(-90, 20, 57.5)" stroke="#000000" stroke-width="0" font-size="12" text-anchor="middle">Entities</text>
+            </g>
+
+            <g transform="translate(35,10)">
+                <use xlink:href="#rect_assembly"/>
+                <text x="65" y="17" stroke="#000000" stroke-width="0" font-size="12" text-anchor="middle">Modules</text>
+            </g>
+            <g transform="translate(35,45)">
+                <use xlink:href="#rect_assembly"/>
+                <text x="65" y="17" stroke="#000000" stroke-width="0" font-size="12" text-anchor="middle">Dynamics</text>
+            </g>
+            <g transform="translate(35,80)">
+                <use xlink:href="#rect_assembly"/>
+                <text x="65" y="17" stroke="#000000" stroke-width="0" font-size="12" text-anchor="middle">Core</text>
+            </g>
+        </g>
+
+        <g id="TradingBB" transform="translate(225,15)">
+            <g>
+                <use xlink:href="#rect_bb"/>
+                <text x="20" y="57.5" transform="rotate(-90, 20, 57.5)" stroke="#000000" stroke-width="0" font-size="12" text-anchor="middle">Trading</text>
+            </g>
+
+            <g transform="translate(35,10)">
+                <use xlink:href="#rect_assembly"/>
+                <text x="65" y="17" stroke="#000000" stroke-width="0" font-size="12" text-anchor="middle">Modules</text>
+            </g>
+            <g transform="translate(35,45)">
+                <use xlink:href="#rect_assembly"/>
+                <text x="65" y="17" stroke="#000000" stroke-width="0" font-size="12" text-anchor="middle">GT</text>
+            </g>
+            <g transform="translate(35,80)">
+                <use xlink:href="#rect_assembly"/>
+                <text x="65" y="17" stroke="#000000" stroke-width="0" font-size="12" text-anchor="middle">Core</text>
+            </g>
+        </g>
+
+        <g id="ScriptingBB" transform="translate(410,15)">
+            <g>
+                <use xlink:href="#rect_bb"/>
+                <text x="20" y="57.5" transform="rotate(-90, 20, 57.5)" stroke="#000000" stroke-width="0" font-size="12" text-anchor="middle">Scripting</text>
+            </g>
+
+            <g transform="translate(35,10)">
+                <use xlink:href="#rect_assembly"/>
+                <text x="65" y="17" stroke="#000000" stroke-width="0" font-size="12" text-anchor="middle">Modules</text>
+            </g>
+            <g transform="translate(35,80)">
+                <use xlink:href="#rect_assembly"/>
+                <text x="65" y="17" stroke="#000000" stroke-width="0" font-size="12" text-anchor="middle">Core</text>
+            </g>
+        </g>
+    </g>
+
+    <g id="DAL" transform="translate(190,475)">
+        <g>
+            <use xlink:href="#rect_hlayer"/>
+            <text x="20" y="72" transform="rotate(-90, 20, 72)" font-size="12" text-anchor="middle" stroke="#000000" stroke-width="0">DataAccessLayer</text>
+        </g>
+
+        <g id="DataBB" transform="translate(40,15)">
+            <g>
+                <rect x="0" y="0" width="315" height="115" fill="none" stroke="#000000"/>
+                <text x="20" y="57.5" transform="rotate(-90, 20, 57.5)" stroke="#000000" stroke-width="0" font-size="12" text-anchor="middle">Data</text>
+            </g>
+
+            <g transform="translate(35,10)">
+                <rect x="0" y="0" width="270" height="25" fill="none" stroke="#000000"/>
+                <text x="65" y="17" stroke="#000000" stroke-width="0" font-size="12" text-anchor="middle">Modules</text>
+            </g>
+            <g transform="translate(35,45)">
+                <use xlink:href="#rect_assembly"/>
+                <text x="65" y="17" stroke="#000000" stroke-width="0" font-size="12" text-anchor="middle">Recognition</text>
+            </g>
+            <g transform="translate(175,45)">
+                <use xlink:href="#rect_assembly"/>
+                <text x="65" y="17" stroke="#000000" stroke-width="0" font-size="12" text-anchor="middle">Remoting</text>
+            </g>
+            <g transform="translate(35,80)">
+                <rect x="0" y="0" width="270" height="25" fill="none" stroke="#000000"/>
+                <text x="65" y="17" stroke="#000000" stroke-width="0" font-size="12" text-anchor="middle">Core</text>
+            </g>
+        </g>
+    </g>
+
+    <g id="CommonBB" transform="translate(10,10)">
+        <g>
+            <rect height="610" width="80" y="0" x="0" stroke="#000000" fill="none"/>
+            <text y="20" x="40" text-anchor="middle" font-size="12" stroke-width="0" stroke="#000000">Common</text>
+        </g>
+
+        <g transform="translate(45,40)">
+            <rect height="560" width="25" y="0" x="0"  stroke="#000000" fill="none"/>
+            <text x="16" y="280" transform="rotate(-90, 16, 280)" font-size="12" text-anchor="middle" stroke="#000000" stroke-width="0">Core</text>
+        </g>
+    </g>
+
+    <g id="InfrastructureBB" transform="translate(100,10)">
+        <g>
+            <rect height="610" width="80" y="0" x="0" stroke="#000000" fill="none"/>
+            <text y="20" x="40" text-anchor="middle" font-size="12" stroke-width="0" stroke="#000000">Infrastructure</text>
+        </g>
+
+        <g transform="translate(45,40)">
+            <rect height="560" width="25" y="0" x="0"  stroke="#000000" fill="none"/>
+            <text x="16" y="280" transform="rotate(-90, 16, 280)" font-size="12" text-anchor="middle" stroke="#000000" stroke-width="0">Core</text>
+        </g>
+    </g>
+</g>
+</svg>

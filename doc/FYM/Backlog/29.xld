@@ -1,0 +1,8 @@
+﻿[@page.type: backlog]
+[@subject: DataProviderSC - Support for non table values]
+
+- currently we only have the GenericDatumProvider which works table based
+- some values are not table based (e.g. current stock price or number of stocks per company)
+- GenericDatumProvider currently does not explicitly support this
+
+

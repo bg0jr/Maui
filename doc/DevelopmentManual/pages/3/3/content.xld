@@ -1,0 +1,16 @@
+! Scripting
+
+!! Sheets
+
+When talking about a "sheet" we actually mean the active component which is taking its input in a tabular form and 
+produces output in a tabular form. To avoid naming conflicts such a component will be named "SheetTask".
+
+A SheetTask 
+
+* implements ISheetTask
+* is located on the task layer
+* can be loaded dynamically
+
+The tabular input/output is defined by the IWorkbook and IWorksheet interfaces located in the "common" BB.
+Those interfaces can be understood as "IO devies". The concreate implementation of this IO device is located on the presentation layer.
+
